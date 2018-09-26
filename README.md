@@ -21,7 +21,7 @@ the trip.  This application will serve as a single source of information and com
 * Dependency Management
   * Maven
 * Web Services consumed using Java
-  * NOAA for weather conditions at a trail location, including snow depth
+  * NOAA for weather conditions at a campsite or other location
 * CSS 
   * Bootstrap 
 * Data Validation
