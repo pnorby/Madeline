@@ -14,7 +14,7 @@ the trip.  This application will serve as a single source of information and com
   * All: 
 * Database
   * MySQL
-  * users and roles
+  * users and administrators
   * Store all data for the trip
 * ORM Framework
   * Hibernate 5
@@ -22,22 +22,21 @@ the trip.  This application will serve as a single source of information and com
   * Maven
 * Web Services consumed using Java
   * NOAA for weather conditions at a campsite or other location
+  * Doodle poll API
 * CSS 
   * Bootstrap 
 * Data Validation
-  * Bootstrap Validator for front end
+  * Bootstrap Validator for front end (MAYBE)
   
 * Logging
   * Configurable logging using Log4J2. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
 * Hosting
   * AWS
 * Independent Research Topic/s
-  * CI tools in AWS
-  * Materialize
   * Google Maps API
   * Hibernate Validation
-  * Hibernat Search
-* Project Lombok to eliminate boilerplate code like getters/setters/equals
-* Unit Testing
+  * Hibernate Search
+  * Project Lombok to eliminate boilerplate code like getters/setters/equals
+  * Unit Testing
   * JUnit tests to achieve 80%+ code coverage 
-* IDE: IntelliJ IDEA
+  * IDE: IntelliJ IDEA
