@@ -1,20 +1,29 @@
 package Entity;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.ZoneId;
-import java.util.Date;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
+import javax.ejb.Local;
 /**
  * A class to represent a user.
  *
  * @author pnorby
  */
+
+@Entity(name = "User")
+@Table(name = "user")
 public class User {
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "username")
     private String userName;
+    @Column(name = "email")
     private String email;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
     private int id;
 
 
