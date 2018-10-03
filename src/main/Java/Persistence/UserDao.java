@@ -36,14 +36,15 @@ public class UserDao {
 
     }
 
-    private User createUserFromResults(ResultSet results) throws SQLException {
-        User user = new User();
-        user.setLastName(results.getString("last_name"));
-        user.setFirstName(results.getString("first_name"));
-        user.setUserName(results.getString("username"));
-        user.setId(results.getInt("Id"));
-        user.setEmail(results.getString("email"));
-
-        return user;
+    public List<User> getUsersByLastName(String value){
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root<User> root = query.from(User.class);
+        Expression<String> propertyPath = root.get("lastName");
+        query.where(builder.like(propertyPath, "%" + value + "%"));
+        List<User> users = session.createQuery(query).getResultList();
+        session.close();
+        return users;
     }
 }
