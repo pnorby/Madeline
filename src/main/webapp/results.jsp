@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <table>
     <c:forEach var="user" items="${users}">
-        <tr><td style="border:solid">${user.firstName}</td><td style="border:solid">${user.lastName}</td><td style="border:solid">${user.id}</td><td style="border:solid">${user.birthday}</td></tr>
+        <tr><td style="border:solid">${user.firstName}</td><td style="border:solid">${user.lastName}</td><td style="border:solid">${user.id}</td><td style="border:solid">${user.email}</td></tr>
     </c:forEach>
     </table>
 
@@ -22,7 +22,7 @@
             <h1>Results</h1>            
             <table>
                 <c:forEach var="theUser" items="${searchedUsers}">
-                <tr><td style="border:solid">${theUser.firstName}</td><td style="border:solid">${theUser.lastName}</td><td style="border:solid">${theUser.id}</td><td style="border:solid">${theUser.age}</td></tr>
+                <tr><td style="border:solid">${theUser.firstName}</td><td style="border:solid">${theUser.lastName}</td><td style="border:solid">${theUser.id}</td><td style="border:solid">${theUser.email}</td></tr>
                 </c:forEach>
             </table>
         </c:when>
