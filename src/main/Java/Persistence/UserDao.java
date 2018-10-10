@@ -51,6 +51,18 @@ public class UserDao {
     }
 
     /**
+     * Delete a user
+     * @param user to be deleted
+     */
+    public void delete(User user){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(user);
+        transaction.commit();
+        session.close();
+    }
+
+    /**
      * update user
      * @param user  User to be inserted or updated
      */
