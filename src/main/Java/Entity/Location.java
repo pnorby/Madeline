@@ -49,7 +49,7 @@ public class Location {
         this.locationAddress = locationAddress;
         this.locationCity = locationCity;
         this.locationState = locationState;
-        this.locationZip = locationZip
+        this.locationZip = locationZip;
         this.id = id;
     }
 
