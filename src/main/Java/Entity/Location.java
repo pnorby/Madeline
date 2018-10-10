@@ -3,6 +3,7 @@ package Entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.*;
 
 /**
  * A class to represent a location.
@@ -22,6 +23,8 @@ public class Location {
     private String locationState;
     @Column(name = "location_zip")
     private String locationZip;
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Trip> trips = new HashSet<>();
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
@@ -141,5 +144,30 @@ public class Location {
      */
     public void setLocationZip(String locationZip) {
         this.locationZip = locationZip;
+    }
+
+    /**
+     * Gets trips.
+     *
+     * @return the trips
+     */
+    public Set<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(Set<Trip> trips) {
+        this.trips = trips;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "locationName='" + locationName + '\'' +
+                ", locationAddress='" + locationAddress + '\'' +
+                ", locationCity='" + locationCity + '\'' +
+                ", locationState='" + locationState + '\'' +
+                ", locationZip='" + locationZip + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
