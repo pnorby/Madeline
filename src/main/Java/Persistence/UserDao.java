@@ -2,17 +2,12 @@ package Persistence;
 import Entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.Criteria;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.model.relational.Database;
+import org.hibernate.Transaction;
 
 import javax.persistence.criteria.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -46,5 +41,38 @@ public class UserDao {
         List<User> users = session.createQuery(query).getResultList();
         session.close();
         return users;
+    }
+
+    public User getById(int Id) {
+        Session session = sessionFactory.openSession();
+        User user = session.get(User.class, Id);
+        session.close();
+        return user;
+    }
+
+    /**
+     * update user
+     * @param user  User to be inserted or updated
+     */
+    public int insert(User user) {
+        int id = 0;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        id = (int)session.save(user);
+        transaction.commit();
+        session.close();
+        return id;
+    }
+
+    /**
+     * update user
+     * @param user  User to be inserted or updated
+     */
+    public void saveOrUpdate(User user) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.saveOrUpdate(user);
+        transaction.commit();
+        session.close();
     }
 }
