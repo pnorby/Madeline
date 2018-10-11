@@ -14,10 +14,10 @@ import java.time.LocalDate;
 @Table(name = "message")
 public class Message {
 
-    @Column(name = "trip_id")
-    private int tripId;
-    @Column(name = "user_id")
-    private int userId;
+    @ManyToOne
+    private Trip trip;
+    @ManyToOne
+    private User user;
     @Column(name = "sent_dtm")
     private LocalDate sentDateTime;
     @Column(name = "message_body")
@@ -38,52 +38,52 @@ public class Message {
     /**
      * Instantiates a new Message.
      *
-     * @param tripId       the trip the message is associated with
-     * @param userId       person who sent the message
-     * @param sentDateTime the time the message was sent
+     * @param trip         the trip
+     * @param user         the user
+     * @param sentDateTime the sent date time
      * @param messageBody  the message body
      */
-    public Message(int tripId, int userId, LocalDate sentDateTime, String messageBody) {
-        this.tripId = tripId;
-        this.userId = userId;
+    public Message(Trip trip, User user, LocalDate sentDateTime, String messageBody) {
+        this.trip = trip;
+        this.user = user;
         this.sentDateTime = sentDateTime;
         this.messageBody = messageBody;
     }
 
     /**
-     * Gets trip id.
+     * Gets trip.
      *
-     * @return the trip id
+     * @return the trip
      */
-    public int getTripId() {
-        return tripId;
+    public Trip getTrip() {
+        return trip;
     }
 
     /**
-     * Sets trip id.
+     * Sets trip.
      *
-     * @param tripId the trip id
+     * @param trip the trip
      */
-    public void setTripId(int tripId) {
-        this.tripId = tripId;
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 
     /**
-     * Gets user id.
+     * Gets user.
      *
-     * @return the user id
+     * @return the user
      */
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * Sets user id.
+     * Sets user.
      *
-     * @param userId the user id
+     * @param user the user
      */
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
@@ -144,8 +144,8 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-                "tripId=" + tripId +
-                ", userId=" + userId +
+                "trip=" + trip +
+                ", user=" + user +
                 ", sentDateTime=" + sentDateTime +
                 ", messageBody='" + messageBody + '\'' +
                 ", id=" + id +
