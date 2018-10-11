@@ -19,6 +19,7 @@
         <mapping class="Entity.User"/>
         <mapping class="Entity.Trip"/>
         <mapping class="Entity.Location"/>
+        <mapping class="Entity.Message"/>
 
     </session-factory>
 

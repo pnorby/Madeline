@@ -23,6 +23,9 @@ public class Location {
     private String locationState;
     @Column(name = "location_zip")
     private String locationZip;
+    @Column(name = "location_description")
+    private String locationDescription;
+
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Trip> trips = new HashSet<>();
     @Id
@@ -153,6 +156,14 @@ public class Location {
      */
     public Set<Trip> getTrips() {
         return trips;
+    }
+
+    public String getLocationDescription() {
+        return locationDescription;
+    }
+
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
     }
 
     public void setTrips(Set<Trip> trips) {

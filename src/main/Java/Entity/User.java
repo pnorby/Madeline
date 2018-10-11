@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.ejb.Local;
+
 /**
  * A class to represent a user.
  *
@@ -19,13 +20,15 @@ public class User {
     private String lastName;
     @Column(name = "user_name")
     private String userName;
+
+    @Column(name = "password")
+    private String password;
     @Column(name = "email")
     private String email;
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
     private int id;
-
 
 
     /**
@@ -40,17 +43,32 @@ public class User {
      * @param firstName the first name
      * @param lastName  the last name
      * @param userName  the user name
-     * @param email the user email address
-     * @param id        the id
+     * @param email     the user email address
      */
-    public User(String firstName, String lastName, String userName, String email, int id) {
+    public User(String firstName, String lastName, String userName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
-        this.id = id;
     }
 
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     /**
      * Gets first name.

@@ -37,4 +37,40 @@ class UserDaoTest {
 
     }
 
+    /**
+     * Verifies successful insert of a user
+     */
+    @Test
+    void insertSuccess(){
+        User newUser = new User("Fred", "Flintstone", "fflintstone", "fflintstone@matc.com");
+        int id = dao.insert(newUser);
+        assertNotEquals(0, id);
+        User insertedUser = dao.getById(id);
+        assertEquals("Fred", insertedUser.getFirstName());
+
+    }
+    /**
+     * Verify successful update of user
+     */
+    @Test
+    void updateSuccess() {
+        String newLastName = "Davis";
+        User userToUpdate = dao.getById(3);
+        userToUpdate.setLastName(newLastName);
+        dao.saveOrUpdate(userToUpdate);
+        User retrievedUser = dao.getById(3);
+        assertEquals(newLastName, retrievedUser.getLastName());
+    }
+
+    /**
+     *  Verify successful get by property (equal match)
+     */
+
+    //@Test
+    //void getByPropertyEqualSuccess(){
+      //  List<User> users = dao.getByPropertyLike("lastName", "Curry");
+        //assertEquals(1, users.size());
+        //assertEquals(3, users.get(0).getId());
+    //}
+
 }
