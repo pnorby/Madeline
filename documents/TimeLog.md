@@ -3,3 +3,10 @@
 | Date | Task | Hours | Notes|
 |------|------|-------|------|
 | 9/20/18| Set up project repository, write problem statement, journal example, technologies used| 2 | |
+|9/25/18| Completed some of exercise 3 work|3
+|9/28/18| Watched some of the week 4 videos|1
+|10/2/18| Got hibernate into my project| 2
+|10/8/18| Watched some of the week 5 videos|1
+|10/9/18| Got a Dao or two set up and a many to many
+|10/10/18| I updated my database to match my entities, created more daos
+|10/12/18| I updated my time log|
