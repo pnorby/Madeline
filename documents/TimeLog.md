@@ -10,3 +10,4 @@
 |10/9/18| Got a Dao or two set up and a many to many
 |10/10/18| I updated my database to match my entities, created more daos
 |10/12/18| I updated my time log|
+|10/13/18| I added a jsp page, a javascript file, and did peer review feedback| 1.5
