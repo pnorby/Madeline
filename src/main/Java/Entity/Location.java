@@ -3,6 +3,7 @@ package Entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.persistence.criteria.Order;
 import java.util.*;
 import Entity.Trip;
 
@@ -26,9 +27,12 @@ public class Location {
     private String locationZip;
     @Column(name = "location_description")
     private String locationDescription;
+    @Column(name="location_type")
+    private String locationType;
 
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Trip> trips = new HashSet<>();
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
@@ -49,15 +53,17 @@ public class Location {
      * @param locationCity    the location city
      * @param locationState   the location state
      * @param locationZip     the location zip
-     * @param id              the location id
+     * @param locationDescription the description of the location
+     * @param locationType    the type of location
      */
-    public Location(String locationName, String locationAddress, String locationCity, String locationState, String locationZip, int id) {
+    public Location(String locationName, String locationAddress, String locationCity, String locationState, String locationZip, String locationDescription, String locationType) {
         this.locationName = locationName;
         this.locationAddress = locationAddress;
         this.locationCity = locationCity;
         this.locationState = locationState;
         this.locationZip = locationZip;
-        this.id = id;
+        this.locationDescription = locationDescription;
+        this.locationType = locationType;
     }
 
     /**
@@ -67,6 +73,24 @@ public class Location {
      */
     public String getLocationName() {
         return locationName;
+    }
+
+    /**
+     * Gets location type.
+     *
+     * @return the location type
+     */
+    public String getLocationType() {
+        return locationType;
+    }
+
+    /**
+     * Sets location type.
+     *
+     * @param locationType the location type
+     */
+    public void setLocationType(String locationType) {
+        this.locationType = locationType;
     }
 
     /**
@@ -159,16 +183,41 @@ public class Location {
         return trips;
     }
 
+    /**
+     * Gets location description.
+     *
+     * @return the location description
+     */
     public String getLocationDescription() {
         return locationDescription;
     }
 
+    /**
+     * Sets location description.
+     *
+     * @param locationDescription the location description
+     */
     public void setLocationDescription(String locationDescription) {
         this.locationDescription = locationDescription;
     }
 
+    /**
+     * Sets trips.
+     *
+     * @param trips the trips
+     */
     public void setTrips(Set<Trip> trips) {
         this.trips = trips;
+    }
+
+    /**
+     * Add a trip.
+     *
+     * @param trip the trip to add
+     */
+    public void addTrip(Trip trip) {
+        trips.add(trip);
+        trip.setLocation( this );
     }
 
     @Override
@@ -179,6 +228,9 @@ public class Location {
                 ", locationCity='" + locationCity + '\'' +
                 ", locationState='" + locationState + '\'' +
                 ", locationZip='" + locationZip + '\'' +
+                ", locationDescription='" + locationDescription + '\'' +
+                ", locationType='" + locationType + '\'' +
+                ", trips=" + trips +
                 ", id=" + id +
                 '}';
     }

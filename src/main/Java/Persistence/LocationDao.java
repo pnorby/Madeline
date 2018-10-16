@@ -11,11 +11,22 @@ import javax.persistence.criteria.*;
 import java.util.List;
 
 
+/**
+ * The type Location dao.
+ */
 public class LocationDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The Session factory.
+     */
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
 
+    /**
+     * Gets all locations.
+     *
+     * @return the all locations
+     */
     public List<Location> getAllLocations() {
 
         Session session = sessionFactory.openSession();
@@ -28,6 +39,12 @@ public class LocationDao {
 
     }
 
+    /**
+     * Gets by id.
+     *
+     * @param Id the id
+     * @return the by id
+     */
     public Location getById(int Id) {
         Session session = sessionFactory.openSession();
         Location location = session.get(Location.class, Id);
@@ -37,6 +54,7 @@ public class LocationDao {
 
     /**
      * Delete a location
+     *
      * @param location to be deleted
      */
     public void delete(Location location){
@@ -49,7 +67,9 @@ public class LocationDao {
 
     /**
      * update location
-     * @param location  Location to be inserted or updated
+     *
+     * @param location Location to be inserted or updated
+     * @return the int
      */
     public int insert(Location location) {
         int id = 0;
@@ -63,7 +83,8 @@ public class LocationDao {
 
     /**
      * update location
-     * @param location  Location to be inserted or updated
+     *
+     * @param location Location to be inserted or updated
      */
     public void saveOrUpdate(Location location) {
         Session session = sessionFactory.openSession();
@@ -72,4 +93,6 @@ public class LocationDao {
         transaction.commit();
         session.close();
     }
+
+
 }

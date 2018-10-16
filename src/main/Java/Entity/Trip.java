@@ -23,10 +23,10 @@ import java.time.*;
         private String tripName;
 
         @Column(name = "trip_start_date")
-        private LocalDate tripStartDate;
+        private String tripStartDate;
 
         @Column(name = "trip_end_date")
-        private LocalDate tripEndDate;
+        private String tripEndDate;
 
         @Id
         @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
@@ -43,36 +43,73 @@ import java.time.*;
      * Instantiates a new User.
      *
      * @param tripName      the trip name
-     * @param location   the id of the location of the trip
      * @param tripStartDate the date the trip begins
      * @param tripEndDate   the date the trip ends
-     * @param id            the id of the trip
      */
-    public Trip(String tripName, Location location, LocalDate tripStartDate, LocalDate tripEndDate, int id) {
+    public Trip(String tripName, String tripStartDate, String tripEndDate) {
             this.tripName = tripName;
-            this.location = location;
             this.tripStartDate = tripStartDate;
             this.tripEndDate = tripEndDate;
-            this.id = id;
+
         }
 
     /**
-     * Gets location id.
+     * Gets location.
      *
-     * @return the location id
+     * @return the location
      */
     public Location getLocation() {
-            return location;
-        }
+        return location;
+    }
 
     /**
-     * Sets location id.
+     * Sets location.
      *
      * @param location the location
      */
     public void setLocation(Location location) {
-            this.location = location;
-        }
+        this.location = location;
+    }
+
+    /**
+     * Sets trip start date.
+     *
+     * @param tripStartDate the trip start date
+     */
+    public void setTripStartDate(String tripStartDate) {
+        this.tripStartDate = tripStartDate;
+    }
+
+    /**
+     * Sets trip end date.
+     *
+     * @param tripEndDate the trip end date
+     */
+    public void setTripEndDate(String tripEndDate) {
+        this.tripEndDate = tripEndDate;
+    }
+
+
+    /**
+     * Gets trip start date.
+     *
+     * @return the trip start date
+     */
+    public String getTripStartDate() {
+        return tripStartDate;
+    }
+
+    public String getTripEndDate() {
+        return tripEndDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     /**
      * Gets trip name.
@@ -92,41 +129,6 @@ import java.time.*;
             this.tripName = tripName;
         }
 
-    /**
-     * Gets trip start date.
-     *
-     * @return the trip start date
-     */
-    public LocalDate getTripStartDate() {
-            return tripStartDate;
-        }
-
-    /**
-     * Sets trip start date.
-     *
-     * @param tripStartDate the trip start date
-     */
-    public void setTripStartDate(LocalDate tripStartDate) {
-            this.tripStartDate = tripStartDate;
-        }
-
-    /**
-     * Gets trip end date.
-     *
-     * @return the trip end date
-     */
-    public LocalDate getTripEndDate() {
-            return tripEndDate;
-        }
-
-    /**
-     * Sets trip end date.
-     *
-     * @param tripEndDate the trip end date
-     */
-    public void setTripEndDate(LocalDate tripEndDate) {
-            this.tripEndDate = tripEndDate;
-        }
 
     @Override
     public String toString() {
