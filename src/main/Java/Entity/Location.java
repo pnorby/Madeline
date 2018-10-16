@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.*;
+import Entity.Trip;
 
 /**
  * A class to represent a location.
@@ -26,7 +27,7 @@ public class Location {
     @Column(name = "location_description")
     private String locationDescription;
 
-    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "location", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Trip> trips = new HashSet<>();
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
