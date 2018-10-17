@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html >
-  <%@ include file="jsp/head-tag.jsp" %>
+  <%@ include file="head.jsp" %>
   <head>
   <script src="tripWeather.js" type="text/javascript"></script>
   </head>
