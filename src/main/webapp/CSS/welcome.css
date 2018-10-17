@@ -1,0 +1,21 @@
+/*  StyleSheet for about the welcome page*/
+
+header, footer, nav, section, article, aside {
+    display: block;
+}
+
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url("../images01/backgroundAbout.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
