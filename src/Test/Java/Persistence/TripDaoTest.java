@@ -24,7 +24,7 @@ public class TripDaoTest {
     @Test
     void getAllTrips() {
         List<Trip> trips = dao.getAllTrips();
-        assertEquals(6, trips.size());
+        assertEquals(1, trips.size());
     }
 
     /**
@@ -33,14 +33,14 @@ public class TripDaoTest {
     @Test
     void getByIdSuccess() {
         Trip retrievedTrip = dao.getById(1);
-        assertEquals("Barney", retrievedTrip.getTripName());
+        assertEquals("test", retrievedTrip.getTripName());
 
     }
 
     /**
      * Verifies successful insert of a trip
      */
-    @Test
+    /*@Test
     void insert(){
         LocationDao locationDao = new LocationDao();
         Location location = locationDao.getById(1);

@@ -30,9 +30,9 @@ public class TripDao {
 
     }
 
-    public Trip getById(int Id) {
+    public Trip getById(int id) {
         Session session = sessionFactory.openSession();
-        Trip trip = session.get(Trip.class, Id);
+        Trip trip = session.get(Trip.class, id);
         session.close();
         return trip;
     }

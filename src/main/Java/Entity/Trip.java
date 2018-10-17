@@ -15,23 +15,24 @@ import java.time.*;
     @Table(name = "trip")
     public class Trip {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
+    @GenericGenerator(name = "native",strategy = "native")
+    private int id;
 
-        @ManyToOne
-        private Location location;
+    @ManyToOne
+    private Location location;
 
-        @Column(name = "trip_name")
-        private String tripName;
+    @Column(name = "trip_name")
+    private String tripName;
 
-        @Column(name = "trip_start_date")
-        private String tripStartDate;
+    @Column(name = "trip_start_date")
+    private String tripStartDate;
 
-        @Column(name = "trip_end_date")
-        private String tripEndDate;
+    @Column(name = "trip_end_date")
+    private String tripEndDate;
 
-        @Id
-        @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
-        @GenericGenerator(name = "native",strategy = "native")
-        private int id;
+
 
     /**
      * Instantiates a new User.
@@ -46,27 +47,18 @@ import java.time.*;
      * @param tripStartDate the date the trip begins
      * @param tripEndDate   the date the trip ends
      */
-    public Trip(String tripName, String tripStartDate, String tripEndDate) {
+    public Trip(Location location, String tripName, String tripStartDate, String tripEndDate) {
+            this.location = location;
             this.tripName = tripName;
             this.tripStartDate = tripStartDate;
             this.tripEndDate = tripEndDate;
 
         }
 
-    /**
-     * Gets location.
-     *
-     * @return the location
-     */
     public Location getLocation() {
         return location;
     }
 
-    /**
-     * Sets location.
-     *
-     * @param location the location
-     */
     public void setLocation(Location location) {
         this.location = location;
     }
@@ -99,14 +91,29 @@ import java.time.*;
         return tripStartDate;
     }
 
+    /**
+     * Gets trip end date.
+     *
+     * @return the trip end date
+     */
     public String getTripEndDate() {
         return tripEndDate;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
