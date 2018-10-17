@@ -32,7 +32,7 @@ public class TripDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        Trip retrievedTrip = dao.getById(1);
+        Trip retrievedTrip = dao.getById(4);
         assertEquals("test", retrievedTrip.getTripName());
 
     }
@@ -40,13 +40,13 @@ public class TripDaoTest {
     /**
      * Verifies successful insert of a trip
      */
-    /*@Test
+    @Test
     void insert(){
         LocationDao locationDao = new LocationDao();
         Location location = locationDao.getById(1);
         String start = "12/01/2018";
         String end = "12/08/2018";
-        Trip newTrip = new Trip("Test Trip", start, end);
+        Trip newTrip = new Trip(location,"Test Trip", start, end);
         location.addTrip(newTrip);
         int id = dao.insert(newTrip);
         assertNotEquals(0, id);
@@ -61,10 +61,10 @@ public class TripDaoTest {
     @Test
     void updateSuccess() {
         String newTripName = "Test Trip2";
-        Trip tripToUpdate = dao.getById(1);
+        Trip tripToUpdate = dao.getById(4);
         tripToUpdate.setTripName(newTripName);
         dao.saveOrUpdate(tripToUpdate);
-        Trip retrievedTrip = dao.getById(1);
+        Trip retrievedTrip = dao.getById(4);
         assertEquals(newTripName, retrievedTrip.getTripName());
     }
 }

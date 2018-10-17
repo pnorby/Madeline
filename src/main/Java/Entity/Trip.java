@@ -21,6 +21,7 @@ import java.time.*;
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "trip_location")
     private Location location;
 
     @Column(name = "trip_name")

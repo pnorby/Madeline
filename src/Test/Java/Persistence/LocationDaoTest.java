@@ -29,7 +29,7 @@ public class LocationDaoTest {
     @Test
     void getByIdSuccess() {
         Location retrievedLocation = dao.getById(1);
-        assertEquals("Madeline Island", retrievedLocation.getLocationName());
+        assertEquals("Governor Dodge State Park", retrievedLocation.getLocationName());
 
     }
 
