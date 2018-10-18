@@ -42,8 +42,8 @@ public class LocationDao {
     /**
      * Gets by id.
      *
-     * @param Id the id
-     * @return the by id
+     * @param id the id
+     * @return the location
      */
     public Location getById(int id) {
         Session session = sessionFactory.openSession();

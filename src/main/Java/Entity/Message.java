@@ -15,8 +15,10 @@ import java.time.LocalDate;
 public class Message {
 
     @ManyToOne
+    @JoinColumn(name = "trip_id")
     private Trip trip;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
     @Column(name = "sent_dtm")
     private LocalDate sentDateTime;
