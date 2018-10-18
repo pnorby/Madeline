@@ -34,7 +34,7 @@
         <h1 class="cover-heading">Welcome to Madeline</h1>
         <p class="lead">Madeline is your all inclusive trip planning assistant, allowing you to coordinate dates, supplies, and plan for activities based on the weather!</p>
         <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary">Sign Up</a>
+            <a href="signUp.jsp" class="btn btn-lg btn-secondary">Sign Up</a>
         </p>
     </main>
 
