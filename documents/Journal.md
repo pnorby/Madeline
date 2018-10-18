@@ -47,6 +47,11 @@ Tasks Completed:
  * Got another table/entity/dao established
  
 ### Week 6
+Tasks Completed
+ *Did some front end work
+ *Finally got a dao test bug worked out
+ *Got my AWS account number
+ 
 ### Week 7
 ### Week 8
 ### Week 9
