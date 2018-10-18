@@ -16,17 +16,17 @@ import java.io.IOException;
  */
 
 @WebServlet(
-        urlPatterns = {"/allUsers"}
+        urlPatterns = {"/register"}
 )
 
-public class AllUsers extends HttpServlet {
+public class RegisterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        boolean initialLoad = true;
-        UserDao userDao = new UserDao();
-        req.setAttribute("users", userDao.getAllUsers());
-        req.setAttribute("initial", initialLoad);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
+        //add user
+
+        //re-direct to home controller sending user
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController.jsp");
         dispatcher.forward(req, resp);
     }
 }

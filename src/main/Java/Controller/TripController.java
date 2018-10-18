@@ -16,17 +16,25 @@ import java.io.IOException;
  */
 
 @WebServlet(
-        urlPatterns = {"/allUsers"}
+        urlPatterns = {"/tripController"}
 )
 
-public class AllUsers extends HttpServlet {
+public class TripController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        boolean initialLoad = true;
-        UserDao userDao = new UserDao();
-        req.setAttribute("users", userDao.getAllUsers());
-        req.setAttribute("initial", initialLoad);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
+        //Get Trip information
+
+        //Get Weather information
+
+        //Get Message information
+
+        //Get Supply information??
+
+        //Redirect to trip jsp page
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
         dispatcher.forward(req, resp);
+
+
     }
 }
