@@ -1,6 +1,4 @@
-package Controller;
-
-import Persistence.UserDao;
+package controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,25 +14,18 @@ import java.io.IOException;
  */
 
 @WebServlet(
-        urlPatterns = {"/tripController"}
+        urlPatterns = {"/logIn"}
 )
 
-public class TripController extends HttpServlet {
+public class SignInController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Get Trip information
 
-        //Get Weather information
+        //validate user
 
-        //Get Message information
+        //re-direct to home controller sending user
 
-        //Get Supply information??
-
-        //Redirect to trip jsp page
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController.jsp");
         dispatcher.forward(req, resp);
-
-
     }
 }

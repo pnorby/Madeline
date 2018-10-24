@@ -1,6 +1,4 @@
-package Controller;
-
-import Persistence.UserDao;
+package controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,17 +14,19 @@ import java.io.IOException;
  */
 
 @WebServlet(
-        urlPatterns = {"/allUsers"}
+        urlPatterns = {"/homeController"}
 )
 
-public class AllUsers extends HttpServlet {
+public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        boolean initialLoad = true;
-        UserDao userDao = new UserDao();
-        req.setAttribute("users", userDao.getAllUsers());
-        req.setAttribute("initial", initialLoad);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
+        //Get Trip Names and Ids to display on home page
+
+        //Redirect to home jsp page
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
         dispatcher.forward(req, resp);
+
+
     }
 }

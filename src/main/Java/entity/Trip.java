@@ -1,9 +1,9 @@
-package Entity;
+package entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.*;
+import java.util.Date;
 
 
 /**
@@ -21,18 +21,18 @@ import java.time.*;
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "trip_location")
+    @JoinColumn(name = "trip_location",
+      foreignKey = @ForeignKey(name = "trip_location_id_fk") )
     private Location location;
 
     @Column(name = "trip_name")
     private String tripName;
 
     @Column(name = "trip_start_date")
-    private String tripStartDate;
+    private java.sql.Date tripStartDate;
 
     @Column(name = "trip_end_date")
-    private String tripEndDate;
-
+    private java.sql.Date tripEndDate;
 
 
     /**
@@ -44,11 +44,12 @@ import java.time.*;
     /**
      * Instantiates a new User.
      *
+     * @param location      the location
      * @param tripName      the trip name
      * @param tripStartDate the date the trip begins
      * @param tripEndDate   the date the trip ends
      */
-    public Trip(Location location, String tripName, String tripStartDate, String tripEndDate) {
+    public Trip(Location location, String tripName, java.sql.Date tripStartDate, java.sql.Date tripEndDate) {
             this.location = location;
             this.tripName = tripName;
             this.tripStartDate = tripStartDate;
@@ -56,12 +57,31 @@ import java.time.*;
 
         }
 
+    /**
+     * Gets location.
+     *
+     * @return the location
+     */
     public Location getLocation() {
         return location;
     }
 
+    /**
+     * Sets location.
+     *
+     * @param location the location
+     */
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    /**
+     * Gets trip start date.
+     *
+     * @return the trip start date
+     */
+    public java.sql.Date getTripStartDate() {
+        return tripStartDate;
     }
 
     /**
@@ -69,27 +89,8 @@ import java.time.*;
      *
      * @param tripStartDate the trip start date
      */
-    public void setTripStartDate(String tripStartDate) {
+    public void setTripStartDate(java.sql.Date tripStartDate) {
         this.tripStartDate = tripStartDate;
-    }
-
-    /**
-     * Sets trip end date.
-     *
-     * @param tripEndDate the trip end date
-     */
-    public void setTripEndDate(String tripEndDate) {
-        this.tripEndDate = tripEndDate;
-    }
-
-
-    /**
-     * Gets trip start date.
-     *
-     * @return the trip start date
-     */
-    public String getTripStartDate() {
-        return tripStartDate;
     }
 
     /**
@@ -97,8 +98,17 @@ import java.time.*;
      *
      * @return the trip end date
      */
-    public String getTripEndDate() {
+    public java.sql.Date getTripEndDate() {
         return tripEndDate;
+    }
+
+    /**
+     * Sets trip end date.
+     *
+     * @param tripEndDate the trip end date
+     */
+    public void setTripEndDate(java.sql.Date tripEndDate) {
+        this.tripEndDate = tripEndDate;
     }
 
     /**

@@ -1,12 +1,11 @@
-package Persistence;
+package persistence;
 
-import Entity.Location;
-import Entity.Trip;
+import entity.Location;
+import entity.Trip;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.time.*;
+import java.sql.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,8 +43,8 @@ public class TripDaoTest {
     void insert(){
         LocationDao locationDao = new LocationDao();
         Location location = locationDao.getById(1);
-        String start = "12/01/2018";
-        String end = "12/08/2018";
+        java.sql.Date start = new Date(23);
+        java.sql.Date end = new Date(23);
         Trip newTrip = new Trip(location,"Test Trip", start, end);
         location.addTrip(newTrip);
         int id = dao.insert(newTrip);

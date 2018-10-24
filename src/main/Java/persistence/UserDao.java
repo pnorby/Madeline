@@ -1,5 +1,5 @@
-package Persistence;
-import Entity.User;
+package persistence;
+import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -1,5 +1,5 @@
-package Persistence;
-import Entity.Location;
+package persistence;
+import entity.Location;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

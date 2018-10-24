@@ -1,6 +1,6 @@
-package Persistence;
+package persistence;
 
-import Entity.Location;
+import entity.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,11 +1,9 @@
-package Entity;
+package entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.persistence.criteria.Order;
 import java.util.*;
-import Entity.Trip;
 
 /**
  * A class to represent a location.

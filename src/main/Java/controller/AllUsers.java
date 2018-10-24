@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import Persistence.UserDao;
+import persistence.UserDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,18 +16,17 @@ import java.io.IOException;
  */
 
 @WebServlet(
-        urlPatterns = {"/logIn"}
+        urlPatterns = {"/allUsers"}
 )
 
-public class SignInController extends HttpServlet {
+public class AllUsers extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        //validate user
-
-        //re-direct to home controller sending user
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController.jsp");
+        boolean initialLoad = true;
+        UserDao userDao = new UserDao();
+        req.setAttribute("users", userDao.getAllUsers());
+        req.setAttribute("initial", initialLoad);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
     }
 }

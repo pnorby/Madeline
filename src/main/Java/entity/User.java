@@ -1,9 +1,8 @@
-package Entity;
+package entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.ejb.Local;
 
 /**
  * A class to represent a user.
