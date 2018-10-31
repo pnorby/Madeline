@@ -17,7 +17,7 @@
 
 <body class="text-center">
 
-<form class="form" style="text-align:center">
+<form class="form" action="register" method="post" >
 
     <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
     <label for="inputEmail" class="sr-only">Email</label>
