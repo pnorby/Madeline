@@ -28,31 +28,31 @@ public class RegisterController extends HttpServlet {
         HttpSession session = req.getSession();
         GenericDao genDao = new GenericDao();
 
-        String firstName = req.getParameter();
-        String lastName = req.getParameter();
-        String email = req.getParameter();
-        String username = req.getParameter();
-        String password = req.getParameter();
-        String passwordConfirm = req.getParameter();
-        String errorMessage = null;
-        String forwardTo = null;
+        //String firstName = req.getParameter();
+        //String lastName = req.getParameter();
+        //String email = req.getParameter();
+        //String username = req.getParameter();
+        //String password = req.getParameter();
+        //String passwordConfirm = req.getParameter();
+        //String errorMessage = null;
+        //String forwardTo = null;
 
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()){
+        //if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()){
 
-        }
+        //}
 
-        Boolean usernameOkay = genDao.checkUsername(username);
+        //Boolean usernameOkay = genDao.checkUsername(username);
 
-        if(!(password.equals(passwordConfirm)) || usernameOkay.equals(false)){
+        //if(!(password.equals(passwordConfirm)) || usernameOkay.equals(false)){
 
-        }
+        //}
 
 
 
 
         //re-direct to home controller sending user
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher(forwardTo);
-        dispatcher.forward(req, resp);
+        //RequestDispatcher dispatcher = req.getRequestDispatcher(forwardTo);
+        //dispatcher.forward(req, resp);
     }
 }
