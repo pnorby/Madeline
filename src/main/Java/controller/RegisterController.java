@@ -26,7 +26,7 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //add user
         HttpSession session = req.getSession();
-        GenericDao genDao = new GenericDao();
+        //GenericDao genDao = new GenericDao();
 
         //String firstName = req.getParameter();
         //String lastName = req.getParameter();

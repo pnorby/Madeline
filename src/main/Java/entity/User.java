@@ -44,11 +44,12 @@ public class User {
      * @param userName  the user name
      * @param email     the user email address
      */
-    public User(String firstName, String lastName, String userName, String email) {
+    public User(String firstName, String lastName, String userName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
+        this.password = password;
     }
 
     /**

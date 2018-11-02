@@ -62,6 +62,19 @@ public class GenericDao<T> {
         transaction.commit();
         session.close();
     }
+    /**
+     * update user
+     * @param entity  User to be inserted or updated
+     */
+    public int insert(T entity) {
+        int id = 0;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        id = (int)session.save(entity);
+        transaction.commit();
+        session.close();
+        return id;
+    }
 
 
 }

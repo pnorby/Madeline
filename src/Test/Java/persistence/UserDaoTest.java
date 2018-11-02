@@ -42,11 +42,11 @@ class UserDaoTest {
      */
     @Test
     void insertSuccess(){
-        User newUser = new User("Fred", "Flintstone", "fflintstone", "fflintstone@matc.com");
+        User newUser = new User("Paul", "Norby", "paulnorby", "pnorby@matc.com","supersecret");
         int id = dao.insert(newUser);
         assertNotEquals(0, id);
         User insertedUser = dao.getById(id);
-        assertEquals("Fred", insertedUser.getFirstName());
+        assertEquals("Paul", insertedUser.getFirstName());
 
     }
     /**
