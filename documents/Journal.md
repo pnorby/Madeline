@@ -53,8 +53,18 @@ Tasks Completed
  *Got my AWS account number
  
 ### Week 7
+Tasks Completed
+ *Got my EC2 Working returning some dat
+ *Added some jsp/html
+ 
 ### Week 8
+Tasks Completed
+ *Got authentication working in my local project
+ 
 ### Week 9
+Tasks Completed
+ *Weekly exercises, added some logic
+ 
 ### Week 10
 ### Week 11
 ### Week 12
