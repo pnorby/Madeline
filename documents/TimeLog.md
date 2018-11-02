@@ -13,4 +13,7 @@
 |10/13/18| I added a jsp page, a javascript file, and did peer review feedback| 1.5
 |10/15/18| I worked on my dao tests|2
 |10/16/18| Bug in my dao tests still, added some front end work|2
-|10/17|18| Got AWS account|1
+|10/17/18| Got AWS account|1
+|10/22/18| Got deployed to AWS|2
+|10/24/18| Updated some css and added a navbar|1
+|10/30/18| Got My SOAP exercises mostly done | 3
