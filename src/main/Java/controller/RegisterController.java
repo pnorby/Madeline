@@ -1,8 +1,10 @@
 package controller;
 
+import entity.User;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,29 +28,52 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //add user
         HttpSession session = req.getSession();
-        //GenericDao genDao = new GenericDao();
+        GenericDao<User> genDao = new GenericDao<>(User.class);
 
-        //String firstName = req.getParameter();
-        //String lastName = req.getParameter();
-        //String email = req.getParameter();
-        //String username = req.getParameter();
-        //String password = req.getParameter();
-        //String passwordConfirm = req.getParameter();
-        //String errorMessage = null;
-        //String forwardTo = null;
-
-        //if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()){
-
-        //}
-
-        //Boolean usernameOkay = genDao.checkUsername(username);
-
-        //if(!(password.equals(passwordConfirm)) || usernameOkay.equals(false)){
-
-        //}
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String email = req.getParameter("email");
+        String username = req.getParameter("userName");
+        String password = req.getParameter("pWord");
+        String passwordConfirm = req.getParameter("pWordConfirm");
+        String returnMessage = null;
+        String forwardTo = null;
+        Boolean usernameOkay = null;
 
 
 
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()){
+            returnMessage = "All Fields Must Contain a Value";
+        } else if(!(password.equals(passwordConfirm))){
+            returnMessage = "Passwords Must Match";
+        } else {
+            usernameOkay = genDao.checkUsername(username);
+        }
+
+
+        try{
+
+            if (usernameOkay.equals(null) || usernameOkay.equals(false)) {
+                returnMessage = "Username Already In Use";
+            } else {
+
+                User newUser = new User(firstName, lastName, username, email, password);
+
+                genDao.insert(newUser);
+                returnMessage = "Success!";
+
+            }
+
+            forwardTo = "/Madeline/signIn.jsp";
+        }
+        catch(Exception e){
+
+        }
+
+        ServletContext servletContext = getServletContext();
+        session.setAttribute("message", returnMessage);
+
+        resp.setHeader("Refresh", "3; URL=/Madeline/signIn.jsp");
 
         //re-direct to home controller sending user
 
