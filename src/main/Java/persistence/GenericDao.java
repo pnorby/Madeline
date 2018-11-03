@@ -55,6 +55,18 @@ public class GenericDao<T> {
         return entity;
     }
 
+    public User getUsersByLastName(String value){
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root<User> root = query.from(User.class);
+        Expression<String> propertyPath = root.get("lastName");
+        query.where(builder.like(propertyPath, "%" + value + "%"));
+        List<User> users = session.createQuery(query).getResultList();
+        session.close();
+        return users;
+    }
+
     public void delete (T entity){
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
