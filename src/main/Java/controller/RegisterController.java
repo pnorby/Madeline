@@ -47,7 +47,7 @@ public class RegisterController extends HttpServlet {
         } else if(!(password.equals(passwordConfirm))){
             returnMessage = "Passwords Must Match";
         } else {
-            usernameOkay = genDao.checkUsername(username);
+            //usernameOkay = genDao.checkUsername(username);
         }
 
 

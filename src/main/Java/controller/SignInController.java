@@ -25,12 +25,19 @@ public class SignInController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        Boolean logIn = false;
+        String forwardTo = null;
         //validate user
         GenericDao<User> genDao = new GenericDao<>(User.class);
+        String userName = req.getParameter("userName");
+        String pWord = req.getParameter("password");
+
+        //logIn = genDao.validateSignIn(userName, password);
+        //if (logIn){forwardTo = "/homeController"}else{forwardTo = "/Madeline/signIn.jsp"};
 
         //re-direct to home controller sending user
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher(forwardTo);
         dispatcher.forward(req, resp);
     }
 }

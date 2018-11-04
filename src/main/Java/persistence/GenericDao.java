@@ -32,9 +32,7 @@ public class GenericDao<T> {
     }
 
 
-    public Boolean checkUsername(String theUserName){
-        return true;
-    }
+
 
     public List<T> getAll(T entity) {
 
@@ -55,13 +53,13 @@ public class GenericDao<T> {
         return entity;
     }
 
-    public User getUsersByLastName(String value){
-        Session session = sessionFactory.openSession();
+    public List<User> getByUsername(String value){
+        Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery(User.class);
         Root<User> root = query.from(User.class);
-        Expression<String> propertyPath = root.get("lastName");
-        query.where(builder.like(propertyPath, "%" + value + "%"));
+        Expression<String> propertyPath = root.get("userName");
+        query.where(builder.equal(propertyPath, value ));
         List<User> users = session.createQuery(query).getResultList();
         session.close();
         return users;
