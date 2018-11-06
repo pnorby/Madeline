@@ -17,13 +17,13 @@
 
 <body class="text-center">
 
-<form action="j_security_check" method = "POST" class="form-signin">
+<form action="logIn" method = "GET" class="form-signin">
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputUserName" class="sr-only">Username</label>
-    <input type="text" id="inputUserName" class="form-control" placeholder="Username" name="j_username" required autofocus>
+    <input type="text" id="inputUserName" name="userName" class="form-control" placeholder="Username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="j_password" required>
+    <input type="password" id="inputPassword"name="password" class="form-control" placeholder="Password"required>
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Remember me

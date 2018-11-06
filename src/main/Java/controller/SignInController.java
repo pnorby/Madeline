@@ -37,9 +37,9 @@ public class SignInController extends HttpServlet {
         logIn = validateSignIn(userName, pWord);
 
         if (logIn){
-            forwardTo = "/homeController";
+            forwardTo = "/Home.jsp";
         }else {
-            forwardTo = "/Madeline/signIn.jsp";
+            forwardTo = "/signIn.jsp";
             returnMessage = "Unable to Log-In, Please Try Again or Contact Customer Service";
             session.setAttribute("message", returnMessage);
         }
