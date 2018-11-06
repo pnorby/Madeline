@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLDataException;
+import java.util.List;
 
 /**
  * A simple servlet to welcome the user.
@@ -31,13 +33,49 @@ public class SignInController extends HttpServlet {
         GenericDao<User> genDao = new GenericDao<>(User.class);
         String userName = req.getParameter("userName");
         String pWord = req.getParameter("password");
+        String returnMessage = "";
+        logIn = validateSignIn(userName, pWord);
 
-        //logIn = genDao.validateSignIn(userName, password);
-        //if (logIn){forwardTo = "/homeController"}else{forwardTo = "/Madeline/signIn.jsp"};
+        if (logIn){
+            forwardTo = "/homeController";
+        }else {
+            forwardTo = "/Madeline/signIn.jsp";
+            returnMessage = "Unable to Log-In, Please Try Again or Contact Customer Service";
+            session.setAttribute("message", returnMessage);
+        }
 
         //re-direct to home controller sending user
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(forwardTo);
         dispatcher.forward(req, resp);
+    }
+
+    private Boolean validateSignIn(String userName, String passWord){
+        List<User> returnedUsers = null;
+        GenericDao<User> genDao = new GenericDao<>(User.class);
+
+        Boolean validated = false;
+
+        try{
+
+            returnedUsers = genDao.getByUsername(userName);
+            if(returnedUsers.size() != 1){
+                throw new SQLDataException();
+                //LOG MESSAGE!
+            }
+
+            for (User u : returnedUsers){
+                if (u.getPassword().equals(passWord)) {
+                    validated = true;
+                } else{
+                    validated = false;
+                }
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return validated;
     }
 }
