@@ -168,23 +168,31 @@
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="46" parent="11" name="trip_location_id_fk">
+    <column id="46" parent="11" name="trip_creator">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="47" parent="11" name="trip_location_id_fk">
       <ColNames>trip_location</ColNames>
     </index>
-    <index id="47" parent="11" name="trip_trip_name_uindex">
+    <index id="48" parent="11" name="trip_trip_name_uindex">
       <ColNames>trip_name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="48" parent="11" name="PRIMARY">
+    <index id="49" parent="11" name="trip_user_id_fk">
+      <ColNames>trip_creator</ColNames>
+    </index>
+    <key id="50" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="49" parent="11" name="trip_trip_name_uindex">
+    <key id="51" parent="11" name="trip_trip_name_uindex">
       <ColNames>trip_name</ColNames>
       <UnderlyingIndexName>trip_trip_name_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="50" parent="11" name="trip_location_id_fk">
+    <foreign-key id="52" parent="11" name="trip_location_id_fk">
       <ColNames>trip_location</ColNames>
       <RefSchemaName>sample</RefSchemaName>
       <RefTableName>location</RefTableName>
@@ -192,42 +200,48 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="51" parent="12" name="id">
+    <foreign-key id="53" parent="11" name="trip_user_id_fk">
+      <ColNames>trip_creator</ColNames>
+      <RefSchemaName>sample</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="54" parent="12" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="52" parent="12" name="first_name">
+    <column id="55" parent="12" name="first_name">
       <Position>2</Position>
       <DataType>varchar(25)|0</DataType>
     </column>
-    <column id="53" parent="12" name="last_name">
+    <column id="56" parent="12" name="last_name">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="54" parent="12" name="user_name">
+    <column id="57" parent="12" name="user_name">
       <Position>4</Position>
       <DataType>varchar(15)|0</DataType>
     </column>
-    <column id="55" parent="12" name="password">
+    <column id="58" parent="12" name="password">
       <Position>5</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="56" parent="12" name="email">
+    <column id="59" parent="12" name="email">
       <Position>6</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <index id="57" parent="12" name="users_user_name_uindex">
+    <index id="60" parent="12" name="users_user_name_uindex">
       <ColNames>user_name</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="58" parent="12" name="PRIMARY">
+    <key id="61" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="59" parent="12" name="users_user_name_uindex">
+    <key id="62" parent="12" name="users_user_name_uindex">
       <ColNames>user_name</ColNames>
       <UnderlyingIndexName>users_user_name_uindex</UnderlyingIndexName>
     </key>

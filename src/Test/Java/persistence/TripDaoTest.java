@@ -45,7 +45,7 @@ public class TripDaoTest {
         Location location = locationDao.getById(1);
         java.sql.Date start = new Date(23);
         java.sql.Date end = new Date(23);
-        Trip newTrip = new Trip(location,"Test Trip", start, end);
+        Trip newTrip = new Trip(location,"Test Trip", start, end, 1);
         location.addTrip(newTrip);
         int id = dao.insert(newTrip);
         assertNotEquals(0, id);

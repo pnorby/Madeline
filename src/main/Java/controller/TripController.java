@@ -1,5 +1,9 @@
 package controller;
 
+import entity.Trip;
+import entity.User;
+import persistence.GenericDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +25,9 @@ public class TripController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Get Trip information
+        GenericDao<Trip> genDao = new GenericDao<>(Trip.class);
+        //get trip by parameter
+
 
         //Get Weather information
 

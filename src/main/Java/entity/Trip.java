@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 /**
@@ -22,7 +24,7 @@ import java.util.Date;
 
     @ManyToOne
     @JoinColumn(name = "trip_location",
-      foreignKey = @ForeignKey(name = "trip_location_id_fk") )
+      foreignKey = @ForeignKey(name = "trip_location_id_fk"))
     private Location location;
 
     @Column(name = "trip_name")
@@ -34,6 +36,15 @@ import java.util.Date;
     @Column(name = "trip_end_date")
     private java.sql.Date tripEndDate;
 
+
+
+    @ManyToOne
+    @JoinColumn(name = "trip_creator",
+        foreignKey = @ForeignKey(name = "trip_user_id_fk"))
+    private int tripCreator;
+
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Trip> messages = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -48,12 +59,14 @@ import java.util.Date;
      * @param tripName      the trip name
      * @param tripStartDate the date the trip begins
      * @param tripEndDate   the date the trip ends
+     * @param tripCreator   the trip creator
      */
-    public Trip(Location location, String tripName, java.sql.Date tripStartDate, java.sql.Date tripEndDate) {
+    public Trip(Location location, String tripName, java.sql.Date tripStartDate, java.sql.Date tripEndDate, int tripCreator) {
             this.location = location;
             this.tripName = tripName;
             this.tripStartDate = tripStartDate;
             this.tripEndDate = tripEndDate;
+            this.tripCreator = tripCreator;
 
         }
 
@@ -147,6 +160,23 @@ import java.util.Date;
             this.tripName = tripName;
         }
 
+    /**
+     * Gets trip creator.
+     *
+     * @return the trip creator
+     */
+    public int getTripCreator() {
+        return tripCreator;
+    }
+
+    /**
+     * Sets trip creator.
+     *
+     * @param tripCreator the trip creator
+     */
+    public void setTripCreator(int tripCreator) {
+        this.tripCreator = tripCreator;
+    }
 
     @Override
     public String toString() {
@@ -155,6 +185,7 @@ import java.util.Date;
                 ", tripName='" + tripName + '\'' +
                 ", tripStartDate=" + tripStartDate +
                 ", tripEndDate=" + tripEndDate +
+                ", tripCreator=" + tripCreator +
                 ", id=" + id +
                 '}';
     }
