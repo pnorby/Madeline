@@ -57,9 +57,11 @@ public class RegisterController extends HttpServlet {
                 returnMessage = "Username Already In Use";
             } else {
 
+
                 User newUser = new User(firstName, lastName, username, email, password);
 
-                genDao.insert(newUser);
+                 int someUser = genDao.insert(newUser);
+
                 returnMessage = "Success!";
 
             }

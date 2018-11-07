@@ -43,7 +43,7 @@ import java.util.Set;
 
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Trip> messages = new HashSet<>();
+    private Set<Message> messages = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -182,7 +182,7 @@ import java.util.Set;
      *
      * @return the messages
      */
-    public Set<Trip> getMessages() {
+    public Set<Message> getMessages() {
         return messages;
     }
 
@@ -191,7 +191,7 @@ import java.util.Set;
      *
      * @param messages the messages
      */
-    public void setMessages(Set<Trip> messages) {
+    public void setMessages(Set<Message> messages) {
         this.messages = messages;
     }
 

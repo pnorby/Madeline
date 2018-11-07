@@ -37,12 +37,12 @@ public class SignInController extends HttpServlet {
         logIn = validateSignIn(userName, pWord);
 
         if (logIn){
-            forwardTo = "/HomeController";
-            session.setAttribute("loggedIn", logIn);
-            System.out.println("made it in");
-        }else {
-            System.out.println("did not login");
             forwardTo = "/homeController";
+            session.setAttribute("loggedIn", logIn);
+
+        }else {
+
+            forwardTo = "/index.jsp";
             returnMessage = "Unable to Log-In, Please Try Again or Contact Customer Service";
             session.setAttribute("message", returnMessage);
         }
@@ -63,7 +63,7 @@ public class SignInController extends HttpServlet {
 
             returnedUsers = genDao.getByUsername(userName);
             if(returnedUsers.size() != 1){
-                System.out.println("size was not 1");
+
                 //LOG MESSAGE!
             }
 

@@ -2,6 +2,7 @@ package persistence;
 
 import entity.Location;
 import entity.Trip;
+import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,10 +43,12 @@ public class TripDaoTest {
     @Test
     void insert(){
         LocationDao locationDao = new LocationDao();
+        UserDao userDao = new UserDao();
         Location location = locationDao.getById(1);
+        User user = userDao.getById(1);
         java.sql.Date start = new Date(23);
         java.sql.Date end = new Date(23);
-        Trip newTrip = new Trip(location,"Test Trip", start, end, 1);
+        Trip newTrip = new Trip(location,"Test Trip", start, end, user);
         location.addTrip(newTrip);
         int id = dao.insert(newTrip);
         assertNotEquals(0, id);
