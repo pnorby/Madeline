@@ -47,7 +47,7 @@ public class RegisterController extends HttpServlet {
         } else if(!(password.equals(passwordConfirm))){
             returnMessage = "Passwords Must Match";
         } else {
-            //usernameOkay = genDao.checkUsername(username);
+            usernameOkay = true;
         }
 
 
@@ -67,11 +67,12 @@ public class RegisterController extends HttpServlet {
             forwardTo = "/Madeline/signIn.jsp";
         }
         catch(Exception e){
-
+            e.printStackTrace();
         }
 
         ServletContext servletContext = getServletContext();
         session.setAttribute("message", returnMessage);
+
 
         resp.setHeader("Refresh", "3; URL=/Madeline/signIn.jsp");
 
