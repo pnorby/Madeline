@@ -11,7 +11,6 @@ import java.util.Set;
  *
  * @author pnorby
  */
-
 @Entity(name = "User")
 @Table(name = "user")
 public class User {
@@ -51,6 +50,7 @@ public class User {
      * @param lastName  the last name
      * @param userName  the user name
      * @param email     the user email address
+     * @param password  the password
      */
     public User(String firstName, String lastName, String userName, String email, String password) {
         this.firstName = firstName;
@@ -164,6 +164,51 @@ public class User {
      */
     public void setEmail(String address) {this.email = address; }
 
+    /**
+     * Add a trip.
+     *
+     * @param trip the trip to add
+     */
+    public void addTrip(Trip trip) {
+        trips.add(trip);
+        trip.setTripCreator( this );
+    }
+
+    /**
+     * Gets trips.
+     *
+     * @return the trips
+     */
+    public Set<Trip> getTrips() {
+        return trips;
+    }
+
+    /**
+     * Sets trips.
+     *
+     * @param trips the trips
+     */
+    public void setTrips(Set<Trip> trips) {
+        this.trips = trips;
+    }
+
+    /**
+     * Gets messages.
+     *
+     * @return the messages
+     */
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
+    /**
+     * Sets messages.
+     *
+     * @param messages the messages
+     */
+    public void setMessages(Set<Message> messages) {
+        this.messages = messages;
+    }
 
     @Override
     public String toString() {

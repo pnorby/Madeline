@@ -27,6 +27,11 @@ import java.util.Set;
       foreignKey = @ForeignKey(name = "trip_location_id_fk"))
     private Location location;
 
+    @ManyToOne
+    @JoinColumn(name = "trip_creator",
+            foreignKey = @ForeignKey(name = "trip_user_id_fk"))
+    private User tripCreator;
+
     @Column(name = "trip_name")
     private String tripName;
 
@@ -36,12 +41,6 @@ import java.util.Set;
     @Column(name = "trip_end_date")
     private java.sql.Date tripEndDate;
 
-
-
-    @ManyToOne
-    @JoinColumn(name = "trip_creator",
-        foreignKey = @ForeignKey(name = "trip_user_id_fk"))
-    private int tripCreator;
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Trip> messages = new HashSet<>();
@@ -61,7 +60,7 @@ import java.util.Set;
      * @param tripEndDate   the date the trip ends
      * @param tripCreator   the trip creator
      */
-    public Trip(Location location, String tripName, java.sql.Date tripStartDate, java.sql.Date tripEndDate, int tripCreator) {
+    public Trip(Location location, String tripName, java.sql.Date tripStartDate, java.sql.Date tripEndDate, User tripCreator) {
             this.location = location;
             this.tripName = tripName;
             this.tripStartDate = tripStartDate;
@@ -165,7 +164,7 @@ import java.util.Set;
      *
      * @return the trip creator
      */
-    public int getTripCreator() {
+    public User getTripCreator() {
         return tripCreator;
     }
 
@@ -174,8 +173,26 @@ import java.util.Set;
      *
      * @param tripCreator the trip creator
      */
-    public void setTripCreator(int tripCreator) {
+    public void setTripCreator(User tripCreator) {
         this.tripCreator = tripCreator;
+    }
+
+    /**
+     * Gets messages.
+     *
+     * @return the messages
+     */
+    public Set<Trip> getMessages() {
+        return messages;
+    }
+
+    /**
+     * Sets messages.
+     *
+     * @param messages the messages
+     */
+    public void setMessages(Set<Trip> messages) {
+        this.messages = messages;
     }
 
     @Override
