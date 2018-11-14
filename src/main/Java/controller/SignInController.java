@@ -39,6 +39,7 @@ public class SignInController extends HttpServlet {
         if (logIn){
             forwardTo = "/homeController";
             session.setAttribute("loggedIn", logIn);
+            session.setAttribute("user", userName);
 
         }else {
 
@@ -61,7 +62,7 @@ public class SignInController extends HttpServlet {
 
         try{
 
-            returnedUsers = genDao.getByUsername(userName);
+            returnedUsers = genDao.getByPropertyEqual("userName", userName);
             if(returnedUsers.size() != 1){
 
                 //LOG MESSAGE!

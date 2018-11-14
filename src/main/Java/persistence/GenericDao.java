@@ -1,5 +1,6 @@
 package persistence;
 import entity.Location;
+import entity.Trip;
 import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +18,8 @@ import java.util.List;
  */
 public class GenericDao<T> {
     private Class<T> type;
+    private Session session;
+    private Transaction transaction;
     private final Logger logger = LogManager.getLogger(this.getClass());
     /**
      * Instantiates a new Generic dao
@@ -53,16 +56,32 @@ public class GenericDao<T> {
         return entity;
     }
 
-    public List<User> getByUsername(String value){
+    /**
+     * Get objects by property (exact match)
+     * sample usage: getByPropertyEqual("lastname", "Curry")
+     */
+    public List<T> getByPropertyEqual(String propertyName, String value) {
+        session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root).where(builder.equal(root.get(propertyName), value));
+        List<T> list = session.createQuery( query ).getResultList();
+        session.close();
+        return list;
+    }
+
+    public List<Trip> getByCreator(User user){
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
-        Expression<String> propertyPath = root.get("userName");
-        query.where(builder.equal(propertyPath, value ));
-        List<User> users = session.createQuery(query).getResultList();
+        CriteriaQuery<Trip> query = builder.createQuery(Trip.class);
+        Root<Trip> root = query.from(Trip.class);
+        Expression<String> propertyPath = root.get("tripCreator");
+        query.where(builder.equal(propertyPath, user));
+        List<Trip> trips = session.createQuery(query).getResultList();
         session.close();
-        return users;
+        return trips;
     }
 
     public void delete (T entity){

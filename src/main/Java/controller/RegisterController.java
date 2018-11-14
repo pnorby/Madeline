@@ -24,11 +24,12 @@ import java.util.*;
 )
 
 public class RegisterController extends HttpServlet {
+    GenericDao<User> genDao = new GenericDao<>(User.class);
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //add user
         HttpSession session = req.getSession();
-        GenericDao<User> genDao = new GenericDao<>(User.class);
+
 
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
@@ -42,12 +43,12 @@ public class RegisterController extends HttpServlet {
 
 
 
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()){
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()){
             returnMessage = "All Fields Must Contain a Value";
         } else if(!(password.equals(passwordConfirm))){
             returnMessage = "Passwords Must Match";
         } else {
-            usernameOkay = true;
+            usernameOkay = checkUserName(username);
         }
 
 
@@ -72,15 +73,28 @@ public class RegisterController extends HttpServlet {
             e.printStackTrace();
         }
 
-        ServletContext servletContext = getServletContext();
-        session.setAttribute("message", returnMessage);
 
-
-        resp.setHeader("Refresh", "3; URL=/Madeline/signIn.jsp");
+        resp.setHeader("Refresh", "3; URL=" + forwardTo);
 
         //re-direct to home controller sending user
 
         //RequestDispatcher dispatcher = req.getRequestDispatcher(forwardTo);
         //dispatcher.forward(req, resp);
+    }
+
+    private Boolean checkUserName(String uName){
+        Integer size;
+        Boolean userNameAvailable = false;
+        try{
+            size = genDao.getByPropertyEqual("userName", uName).size();
+            if (size.equals(0)){
+                userNameAvailable = true;
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return userNameAvailable;
     }
 }
