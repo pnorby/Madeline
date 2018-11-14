@@ -38,8 +38,9 @@
                     My Trips
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <c:forEach var="trip" items="${tripNames}">
+                        <a class="dropdown-item" href="#">${trip}</a>
+                    </c:forEach>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>

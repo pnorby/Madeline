@@ -45,6 +45,9 @@ public class HomeController extends HttpServlet {
             //gets the trip names and populates "trip names" to be displayed in the drop down menu
             getUserTripNames(tripNames, userTrips);
 
+            req.setAttribute("tripNamesList", tripNames);
+
+
         }
         catch(Exception e){
 
