@@ -36,21 +36,20 @@ public class HomeController extends HttpServlet {
         theUserName = (String)session.getAttribute("user");
         User theUser = null;
         Set<Trip> userTrips = null;
-        List<String> tripNames = null;
+
 
         try{
             theUserName = (String)session.getAttribute("user");
             theUser =  getUserByUsername(theUserName);
             userTrips = theUser.getTrips();
-            //gets the trip names and populates "trip names" to be displayed in the drop down menu
-            getUserTripNames(tripNames, userTrips);
 
-            req.setAttribute("tripNamesList", tripNames);
+
+            req.setAttribute("userTrips", userTrips);
 
 
         }
         catch(Exception e){
-
+            e.printStackTrace();
         }
 
         //Redirect to home jsp page
@@ -74,11 +73,5 @@ public class HomeController extends HttpServlet {
             e.printStackTrace();
         }
         return theUser;
-    }
-
-    private void getUserTripNames(List<String> tripNames, Set<Trip> theTrips){
-        for(Trip t : theTrips){
-            tripNames.add(t.getTripName());
-        }
     }
 }

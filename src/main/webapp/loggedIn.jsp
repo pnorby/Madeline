@@ -1,32 +1,29 @@
-<header>
-    <nav class="navbar navbar-inverse" id="theNav">
-        <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavBar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavBar">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">SampleDropdown<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="Samples.html">Samples</a></li>
-                            <li><a href="MoreSamples.html">more</a></li>
-                        </ul>
-                    </li>
-                </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Plan a Trip</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Trips
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <c:forEach var="trip" items="${userTrips}">
+                        <a class="dropdown-item" href="#">${trip.tripName}</a>
+                    </c:forEach>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="mailto:paulnorby@me.com"><span class="glyphicon glyphicon-envelope"></span> paulnorby@me.com</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+    </div>
+</nav>

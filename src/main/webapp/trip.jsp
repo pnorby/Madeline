@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Home</title>
+    <title>My Trip</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"
@@ -54,26 +54,15 @@
 
         </div>
         <div id="tripWeather">
-            <div class="row">
-                <div class="col-lg-2">
-                    <p>day1</p>
+            <c:forEach var="newRow" items="${weatherRows}">
+            <div class="row"
+            <c:forEach var="day" items="${weatherRows.tripDays}">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" name="tripDay" id="${day}">
+                    <p>${day}</p>
                 </div>
-                <div class="col-lg-2">
-                    <p>day2</p>
-                </div>
-                <div class="col-lg-2">
-                    <p>day3</p>
-                </div>
-                <div class="col-lg-2">
-                    <p>day4</p>
-                </div>
-                <div class="col-lg-2">
-                    <p>day5</p>
-                </div>
-                <div class="col-lg-2">
-                    <p>day6</p>
-                </div>
-            </div>
+            </c:forEach>
+        </div>
+        </c:forEach>
         </div>
         <div id="tripInformation">
         </div>
