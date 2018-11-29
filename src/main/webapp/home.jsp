@@ -22,7 +22,6 @@
     <c:when test="${loggedIn}">
 <%@include file="/loggedIn.jsp"%>
 
-
 <div id="container" class="container">
     <div id="main_content">
 
@@ -33,6 +32,7 @@
     </c:when>
     <c:otherwise>
         <H1>You must log in</H1>
+        </body>
     </c:otherwise>
 
 </c:choose>

@@ -49,9 +49,9 @@ public class GenericDao<T> {
 
     }
 
-    public <T>T getById(int Id) {
+    public T getById(int id) {
         Session session = getSession();
-        T entity = (T)session.get(type, Id);
+        T entity = (T)session.get(type, id);
         session.close();
         return entity;
     }
