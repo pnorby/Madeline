@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -29,10 +30,10 @@ public class AddTripController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        GenericDao<Trip> genDao = new GenericDao<>(Trip.class);
+        GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
         GenericDao<User> userDao = new GenericDao<>(User.class);
         GenericDao<Location> locationDao = new GenericDao<>(Location.class);
-        Boolean addSuccessful;
+        Trip aTrip;
         List<User> users;
         User theUser;
         Location theLocation;
@@ -40,14 +41,23 @@ public class AddTripController extends HttpServlet {
         int tripLocId = Integer.parseInt(tripLocation);
         //will need to be a drop down value for now
         String tripName = req.getParameter("tripName");
-        String startDate = req.getParameter("startDate");
-        String endDate = req.getParameter("endDate");
+        //String startDate = req.getParameter("startDate");
+        //String endDate = req.getParameter("endDate");
+        String startDate = "2018-11-01";
+        String endDate = "2018-11-08";
+        LocalDate startDay = LocalDate.parse(startDate);
+        LocalDate endDay = LocalDate.parse(endDate);
         String userName = (String)session.getAttribute("user");
 
         try{
             users = userDao.getByPropertyEqual("username", userName);
             theUser = users.get(0);
             theLocation = locationDao.getById(tripLocId);
+            aTrip = new Trip(theLocation, tripName, startDay, endDay, theUser);
+            tripDao.insert(aTrip);
+
+
+
 
 
 

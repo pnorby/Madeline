@@ -3,6 +3,7 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -36,10 +37,10 @@ import java.util.Set;
     private String tripName;
 
     @Column(name = "trip_start_date")
-    private java.sql.Date tripStartDate;
+    private LocalDate tripStartDate;
 
     @Column(name = "trip_end_date")
-    private java.sql.Date tripEndDate;
+    private LocalDate tripEndDate;
 
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
@@ -60,7 +61,7 @@ import java.util.Set;
      * @param tripEndDate   the date the trip ends
      * @param tripCreator   the trip creator
      */
-    public Trip(Location location, String tripName, java.sql.Date tripStartDate, java.sql.Date tripEndDate, User tripCreator) {
+    public Trip(Location location, String tripName, LocalDate tripStartDate, LocalDate tripEndDate, User tripCreator) {
             this.location = location;
             this.tripName = tripName;
             this.tripStartDate = tripStartDate;
@@ -92,7 +93,7 @@ import java.util.Set;
      *
      * @return the trip start date
      */
-    public java.sql.Date getTripStartDate() {
+    public LocalDate getTripStartDate() {
         return tripStartDate;
     }
 
@@ -101,7 +102,7 @@ import java.util.Set;
      *
      * @param tripStartDate the trip start date
      */
-    public void setTripStartDate(java.sql.Date tripStartDate) {
+    public void setTripStartDate(LocalDate tripStartDate) {
         this.tripStartDate = tripStartDate;
     }
 
@@ -110,7 +111,7 @@ import java.util.Set;
      *
      * @return the trip end date
      */
-    public java.sql.Date getTripEndDate() {
+    public LocalDate getTripEndDate() {
         return tripEndDate;
     }
 
@@ -119,7 +120,7 @@ import java.util.Set;
      *
      * @param tripEndDate the trip end date
      */
-    public void setTripEndDate(java.sql.Date tripEndDate) {
+    public void setTripEndDate(LocalDate tripEndDate) {
         this.tripEndDate = tripEndDate;
     }
 
