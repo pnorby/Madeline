@@ -30,18 +30,7 @@ public class PlanTripController extends HttpServlet {
         GenericDao<Location> locDao = new GenericDao<>(Location.class);
         List<Location> locations = locDao.getAll();
 
-        req.setAttribute("locs", locations);
-
-        //get trip by parameter
-
-
-        //Get Weather information
-
-        //Get Message information
-
-        //Get Supply information??
-
-        //Redirect to trip jsp page
+        req.setAttribute("locations", locations);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/planTrip.jsp");
         dispatcher.forward(req, resp);
