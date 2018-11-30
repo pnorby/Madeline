@@ -37,15 +37,15 @@ public class GenericDao<T> {
 
 
 
-    public List<T> getAll(T entity) {
+    public List<T> getAll() {
 
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        List<T> users = session.createQuery(query).getResultList();
+        List<T> entities = session.createQuery(query).getResultList();
         session.close();
-        return users;
+        return entities;
 
     }
 
