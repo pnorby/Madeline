@@ -40,14 +40,13 @@ public class TripDaoTest {
     /**
      * Verifies successful insert of a trip
      */
-    @Test
+    /*8@Test
     void insert(){
         LocationDao locationDao = new LocationDao();
         UserDao userDao = new UserDao();
         Location location = locationDao.getById(1);
         User user = userDao.getById(1);
-        java.sql.Date start = new Date(23);
-        java.sql.Date end = new Date(23);
+
         Trip newTrip = new Trip(location,"Test Trip", start, end, user);
         location.addTrip(newTrip);
         int id = dao.insert(newTrip);
