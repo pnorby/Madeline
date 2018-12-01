@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -24,15 +25,19 @@ import java.io.IOException;
 public class TripController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         //Get Trip information
         GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
         Trip trip;
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
+        User user;
 
         try{
+            user = (User)session.getAttribute("loggedIn");
             trip = tripDao.getById(tripId);
             req.setAttribute("trip", trip);
+            req.setAttribute("user", user);
 
         }
         catch (Exception e){

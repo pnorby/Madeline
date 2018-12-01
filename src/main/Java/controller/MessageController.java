@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Message;
 import entity.Trip;
 import persistence.GenericDao;
 
@@ -22,15 +23,17 @@ import java.io.IOException;
 
 public class MessageController extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Get Trip information
-        GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
-        Trip trip;
-        String tripIdNum = req.getParameter("select");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        GenericDao<Message> messageDao = new GenericDao<>(Message.class);
+        Message message = new Message();
+        String tripIdNum = req.getParameter("tripNo");
+        String userIdNum = req.getParameter("userNo");
         int tripId = Integer.parseInt(tripIdNum);
+        int userId = Integer.parseInt(userIdNum);
 
         try{
-            trip = tripDao.getById(tripId);
+
             req.setAttribute("trip", trip);
 
         }
