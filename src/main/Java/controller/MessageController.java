@@ -1,7 +1,6 @@
 package controller;
 
 import entity.Trip;
-import entity.User;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -18,10 +17,10 @@ import java.io.IOException;
  */
 
 @WebServlet(
-        urlPatterns = {"/tripController"}
+        urlPatterns = {"/messageController"}
 )
 
-public class TripController extends HttpServlet {
+public class MessageController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Get Trip information

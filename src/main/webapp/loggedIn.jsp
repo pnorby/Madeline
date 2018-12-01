@@ -12,15 +12,13 @@
                 <a class="nav-link" href="planTripController">Plan a Trip</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     My Trips
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <c:forEach var="trip" items="${userTrips}">
-                        <a class="dropdown-item" href="#">${trip.tripName}</a>
+                        <a class="dropdown-item" href="tripController?select=${trip.id}">${trip.tripName}</a>
                     </c:forEach>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
         </ul>

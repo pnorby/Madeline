@@ -50,9 +50,12 @@ public class AddTripController extends HttpServlet {
         String userName = (String)session.getAttribute("user");
 
         try{
-            users = userDao.getByPropertyEqual("username", userName);
+            users = userDao.getByPropertyEqual("userName", userName);
             theUser = users.get(0);
             theLocation = locationDao.getById(tripLocId);
+            System.out.println(userName);
+            System.out.println(startDate + endDate);
+            System.out.println(tripName);
             aTrip = new Trip(theLocation, tripName, startDay, endDay, theUser);
             tripDao.insert(aTrip);
 
@@ -68,7 +71,7 @@ public class AddTripController extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController");
         dispatcher.forward(req, resp);
 
 

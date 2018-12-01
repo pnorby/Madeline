@@ -64,6 +64,14 @@ public class Location {
         this.locationType = locationType;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     /**
      * Gets location name.
      *
