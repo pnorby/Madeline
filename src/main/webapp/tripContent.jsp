@@ -4,9 +4,9 @@
         <div id="tripName">
             <h1 id="tripHeader">${trip.tripName}</h1>
         </div>
-        <div id="tripWeather">
 
-        </div>
+        <%@include file="/tripWeather.jsp"%>
+
         <div id="tripInformation">
             <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" id="packingList">

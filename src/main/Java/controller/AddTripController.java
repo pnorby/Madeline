@@ -43,8 +43,8 @@ public class AddTripController extends HttpServlet {
         String tripName = req.getParameter("tripName");
         //String startDate = req.getParameter("startDate");
         //String endDate = req.getParameter("endDate");
-        String startDate = "2018-11-01";
-        String endDate = "2018-11-08";
+        String startDate = "2018-12-19";
+        String endDate = "2018-12-26";
         LocalDate startDay = LocalDate.parse(startDate);
         LocalDate endDay = LocalDate.parse(endDate);
         String userName = (String)session.getAttribute("user");

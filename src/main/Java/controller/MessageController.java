@@ -2,6 +2,7 @@ package controller;
 
 import entity.Message;
 import entity.Trip;
+import entity.User;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.List;
 
 /**
  * A simple servlet to welcome the user.
@@ -26,15 +31,29 @@ public class MessageController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         GenericDao<Message> messageDao = new GenericDao<>(Message.class);
-        Message message = new Message();
+        GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+        User user;
+        Trip trip;
+        Message message;
         String tripIdNum = req.getParameter("tripNo");
-        String userIdNum = req.getParameter("userNo");
+        String userIdNum = req.getParameter("uNo");
+        String tripMessage = req.getParameter("tripMessage");
         int tripId = Integer.parseInt(tripIdNum);
         int userId = Integer.parseInt(userIdNum);
+        LocalTime currentTime = LocalTime.now();
+        LocalDate currentDay = LocalDate.now();
+        LocalDateTime theSentTime = currentDay.atTime(currentTime);
 
         try{
 
+            user = userDao.getById(userId);
+            trip = tripDao.getById(tripId);
+            message = new Message(trip, user, theSentTime, tripMessage);
+            messageDao.insert(message);
+
             req.setAttribute("trip", trip);
+            req.setAttribute("user", user);
 
         }
         catch (Exception e){

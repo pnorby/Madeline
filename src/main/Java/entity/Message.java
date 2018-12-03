@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * A class to represent a message.
@@ -21,7 +22,7 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User user;
     @Column(name = "sent_dtm")
-    private LocalDate sentDateTime;
+    private LocalDateTime sentDateTime;
     @Column(name = "message_body")
     private String messageBody;
 
@@ -45,7 +46,7 @@ public class Message {
      * @param sentDateTime the sent date time
      * @param messageBody  the message body
      */
-    public Message(Trip trip, User user, LocalDate sentDateTime, String messageBody) {
+    public Message(Trip trip, User user, LocalDateTime sentDateTime, String messageBody) {
         this.trip = trip;
         this.user = user;
         this.sentDateTime = sentDateTime;
@@ -93,7 +94,7 @@ public class Message {
      *
      * @return the sent date time
      */
-    public LocalDate getSentDateTime() {
+    public LocalDateTime getSentDateTime() {
         return sentDateTime;
     }
 
@@ -102,7 +103,7 @@ public class Message {
      *
      * @param sentDateTime the sent date time
      */
-    public void setSentDateTime(LocalDate sentDateTime) {
+    public void setSentDateTime(LocalDateTime sentDateTime) {
         this.sentDateTime = sentDateTime;
     }
 
