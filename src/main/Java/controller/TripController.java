@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Location;
 import entity.Trip;
 import entity.User;
 import persistence.GenericDao;
@@ -40,6 +41,7 @@ public class TripController extends HttpServlet {
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
         String theUser = (String)session.getAttribute("user");
+        Location tripLoc;
         List<User> users;
         User user;
         LocalDate tripStart;
@@ -47,6 +49,7 @@ public class TripController extends HttpServlet {
         List<List<String>> rows = new ArrayList<List<String>>();
         String day;
         List<String> days = new ArrayList<String>();
+        String tripZip;
 
         int i = 0;
         int numDays;
@@ -55,6 +58,8 @@ public class TripController extends HttpServlet {
             users = userDao.getByPropertyEqual("userName", theUser);
             user = users.get(0);
             trip = tripDao.getById(tripId);
+            tripLoc = trip.getLocation();
+            tripZip = tripLoc.getLocationZip();
             tripStart = trip.getTripStartDate();
             tripEnd = trip.getTripEndDate();
 
@@ -69,20 +74,20 @@ public class TripController extends HttpServlet {
             for (i = 1; i <= numDays; i++){
                 if(i == numDays){
                     System.out.println(i);
-                    day = dates.get(i - 1).toString();
+                    day = (dates.get(i-1).toString()) + "-" + tripZip;
                     days.add(day);
                     rows.add(days);
 
                 }
                 else if (( i % 6) == 0){
-                    day = dates.get(i-1).toString();
+                    day = (dates.get(i-1).toString()) + "-" + tripZip;
                     days.add(day);
                     rows.add(days);
                     System.out.println(days);
                     days = new ArrayList<String>();
                 } else {
                     System.out.println(i);
-                    day = dates.get(i-1).toString();
+                    day = (dates.get(i-1).toString()) + "-" + tripZip;
                     System.out.println(day);
                     days.add(day);
                 }
