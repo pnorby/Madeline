@@ -3,8 +3,10 @@
 <c:forEach var="newRow" items="${weatherRows}">
     <div class="row">
     <c:forEach var="day" items="${newRow}">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" name="tripDay" id="${day}">
-            <p>${day}</p>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <div class="tripDay" id="${day}">
+
+            </div>
         </div>
     </c:forEach>
     </div>

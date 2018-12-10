@@ -46,9 +46,13 @@ public class TripController extends HttpServlet {
         User user;
         LocalDate tripStart;
         LocalDate tripEnd;
+        LocalDate thisDay;
+        LocalDate lastWeatherDay;
         List<List<String>> rows = new ArrayList<List<String>>();
         String day;
+        LocalDate selectedDay;
         List<String> days = new ArrayList<String>();
+
         String tripZip;
 
         int i = 0;
@@ -62,6 +66,9 @@ public class TripController extends HttpServlet {
             tripZip = tripLoc.getLocationZip();
             tripStart = trip.getTripStartDate();
             tripEnd = trip.getTripEndDate();
+            thisDay = LocalDate.now();
+            lastWeatherDay = thisDay.plusDays(15);
+
 
 
             //tripEnd = tripEnd.plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
@@ -69,25 +76,43 @@ public class TripController extends HttpServlet {
                     .limit(ChronoUnit.DAYS.between(tripStart, tripEnd.plusDays(1)))
                     .collect(Collectors.toList());
 
+            List<LocalDate> weatherDates = Stream.iterate(thisDay, date -> date.plusDays(1))
+                    .limit(ChronoUnit.DAYS.between(thisDay, lastWeatherDay.plusDays(1)))
+                    .collect(Collectors.toList());
+
             numDays = dates.size();
 
             for (i = 1; i <= numDays; i++){
+                selectedDay = dates.get(i-1);
                 if(i == numDays){
                     System.out.println(i);
-                    day = (dates.get(i-1).toString()) + "-" + tripZip;
+                    if (weatherDates.contains(selectedDay)) {
+                        day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
+                    } else{
+                        day = "outOfRange";
+                    }
+
                     days.add(day);
                     rows.add(days);
 
                 }
                 else if (( i % 6) == 0){
-                    day = (dates.get(i-1).toString()) + "-" + tripZip;
+                    if (weatherDates.contains(selectedDay)) {
+                        day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
+                    } else{
+                        day = "outOfRange";
+                    }
                     days.add(day);
                     rows.add(days);
                     System.out.println(days);
                     days = new ArrayList<String>();
                 } else {
                     System.out.println(i);
-                    day = (dates.get(i-1).toString()) + "-" + tripZip;
+                    if (weatherDates.contains(selectedDay)) {
+                        day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
+                    } else{
+                        day = "outOfRange";
+                    }
                     System.out.println(day);
                     days.add(day);
                 }
