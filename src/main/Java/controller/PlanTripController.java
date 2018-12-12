@@ -36,7 +36,7 @@ public class PlanTripController extends HttpServlet {
         String userName = (String)session.getAttribute("user");
         List<User> users = userDao.getByPropertyEqual("userName", userName);
         User theUser = users.get(0);
-        Set<Trip> userTrips = theUser.getTrips();
+        Set<Trip> userTrips = theUser.getTripsCreated();
         req.setAttribute("userTrips", userTrips);
         Boolean loggedIn = (Boolean)session.getAttribute("loggedIn");
         req.setAttribute("locations", locations);

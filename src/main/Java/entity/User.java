@@ -13,7 +13,7 @@ import java.util.Set;
  */
 @Entity(name = "User")
 @Table(name = "user")
-public class User {
+public class User implements java.io.Serializable {
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -28,14 +28,21 @@ public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int id;
+    private int userid;
 
     @OneToMany(mappedBy = "tripCreator", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Trip> trips = new HashSet<>();
+    private Set<Trip> tripsCreated = new HashSet<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Message> messages = new HashSet<>();
 
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinTable(name = "user_trip_xref", catalog = "sample", joinColumns = {
+            @JoinColumn(name = "userid") },
+            inverseJoinColumns = { @JoinColumn(name = "tripid") }
+    )
+    Set<Trip> tripsAttending = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -58,6 +65,24 @@ public class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
+    }
+
+    public User(String firstName, String lastName, String userName, String email, String password, Set<Trip> tripsAttending) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+        this.tripsAttending = tripsAttending;
+    }
+
+
+    public Set<Trip> getTripsAttending(){
+        return this.tripsAttending;
+    }
+
+    public void setTripsAttending(Set<Trip> trips) {
+        this.tripsAttending = trips;
     }
 
     /**
@@ -137,8 +162,8 @@ public class User {
      *
      * @return the id
      */
-    public int getId() {
-        return id;
+    public int getUserid() {
+        return userid;
     }
 
     /**
@@ -146,8 +171,8 @@ public class User {
      *
      * @param id the id
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setUserid(int id) {
+        this.userid = id;
     }
 
     /**
@@ -170,7 +195,7 @@ public class User {
      * @param trip the trip to add
      */
     public void addTrip(Trip trip) {
-        trips.add(trip);
+        tripsCreated.add(trip);
         trip.setTripCreator( this );
     }
 
@@ -179,8 +204,8 @@ public class User {
      *
      * @return the trips
      */
-    public Set<Trip> getTrips() {
-        return trips;
+    public Set<Trip> getTripsCreated() {
+        return tripsCreated;
     }
 
     /**
@@ -188,8 +213,8 @@ public class User {
      *
      * @param trips the trips
      */
-    public void setTrips(Set<Trip> trips) {
-        this.trips = trips;
+    public void setTripsCreated(Set<Trip> trips) {
+        this.tripsCreated = trips;
     }
 
     /**

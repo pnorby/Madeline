@@ -17,7 +17,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <c:forEach var="trip" items="${userTrips}">
-                        <a class="dropdown-item" href="tripController?select=${trip.id}">${trip.tripName}</a>
+                        <a class="dropdown-item" href="tripController?select=${trip.tripid}">${trip.tripName}</a>
                     </c:forEach>
                 </div>
             </li>

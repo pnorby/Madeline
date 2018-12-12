@@ -15,7 +15,7 @@
 
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" id="messageBoard">
                 <p>message board</p>
-                <form method="POST" action="messageController?tripNo=${trip.id}&uNo=${user.id}">
+                <form method="POST" action="messageController?tripNo=${trip.tripid}&uNo=${user.userid}">
                     <label for="theMessage">Message</label>
                     <input type="text" id="theMessage" name="tripMessage"/>
                     <button type="submit">POST</button>

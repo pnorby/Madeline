@@ -15,13 +15,13 @@ import java.util.Set;
  * @author pnorby
  */
 @Entity(name = "Trip")
-    @Table(name = "trip")
-    public class Trip {
+    @Table(name = "trip", catalog = "sample")
+    public class Trip implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int id;
+    private int tripid;
 
     @ManyToOne
     @JoinColumn(name = "trip_location",
@@ -46,6 +46,10 @@ import java.util.Set;
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Message> messages = new HashSet<>();
 
+    @ManyToMany(mappedBy = "tripsAttending")
+    private Set<User> users = new HashSet<>();
+
+
     /**
      * Instantiates a new User.
      */
@@ -69,6 +73,16 @@ import java.util.Set;
             this.tripCreator = tripCreator;
 
         }
+
+    public Trip(Location location, String tripName, LocalDate tripStartDate, LocalDate tripEndDate, User tripCreator, Set<User> users) {
+        this.location = location;
+        this.tripName = tripName;
+        this.tripStartDate = tripStartDate;
+        this.tripEndDate = tripEndDate;
+        this.tripCreator = tripCreator;
+        this.users = users;
+
+    }
 
     /**
      * Gets location.
@@ -129,8 +143,8 @@ import java.util.Set;
      *
      * @return the id
      */
-    public int getId() {
-        return id;
+    public int getTripid() {
+        return tripid;
     }
 
     /**
@@ -138,8 +152,8 @@ import java.util.Set;
      *
      * @param id the id
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setTripid(int id) {
+        this.tripid = id;
     }
 
     /**
@@ -196,6 +210,15 @@ import java.util.Set;
         this.messages = messages;
     }
 
+
+    public Set<User> getUsers(){
+        return this.users;
+    }
+
+    public void setUsers(Set<User> users){
+        this.users = users;
+    }
+
     @Override
     public String toString() {
         return "Trip{" +
@@ -204,7 +227,7 @@ import java.util.Set;
                 ", tripStartDate=" + tripStartDate +
                 ", tripEndDate=" + tripEndDate +
                 ", tripCreator=" + tripCreator +
-                ", id=" + id +
+                ", tripid=" + tripid +
                 '}';
     }
 }
