@@ -1,5 +1,6 @@
 package persistence;
 import entity.Location;
+import entity.Message;
 import entity.Trip;
 import entity.User;
 import org.apache.logging.log4j.LogManager;
@@ -82,6 +83,23 @@ public class GenericDao<T> {
         List<Trip> trips = session.createQuery(query).getResultList();
         session.close();
         return trips;
+    }
+
+    public List<Message> getMostRecentTen(Trip trip){
+
+
+        Session session = getSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+
+        CriteriaQuery<Message> query = builder.createQuery(Message.class);
+                //session.createQuery(query).orderBy("sentDateTime").setMaxResults(10);
+        Root<Message> root = query.from(Message.class);
+        query.select(root).orderBy(builder.asc(root.get("sentDateTime")));
+        List<Message> messages = session.createQuery(query).setMaxResults(8).getResultList();
+        session.close();
+        return messages;
+
     }
 
     public void delete (T entity){

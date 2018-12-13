@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="container" class="container">
     <div id="main_content">
 
@@ -14,7 +15,13 @@
             </div>
 
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" id="messageBoard">
-                <p>message board</p>
+                <c:forEach var="message" items="${tripMessages}">
+                    <div class="row">
+
+                        <p style="color:black">${message.messageBody}</p>
+                    </div>
+
+                </c:forEach>
                 <form method="POST" action="messageController?tripNo=${trip.tripid}&uNo=${user.userid}">
                     <label for="theMessage">Message</label>
                     <input type="text" id="theMessage" name="tripMessage"/>

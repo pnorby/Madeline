@@ -60,20 +60,13 @@ public class MessageController extends HttpServlet {
             e.printStackTrace();
 
         }
-        //get trip by parameter
-
-
-        //Get Weather information
-
-        //Get Message information
-
-        //Get Supply information??
 
         //Redirect to trip jsp page
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
         dispatcher.forward(req, resp);
 
-
     }
+
+
 }

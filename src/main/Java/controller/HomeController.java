@@ -41,6 +41,7 @@ public class HomeController extends HttpServlet {
         Set<Trip> allUserTrips = new HashSet<>();
 
 
+
         try{
             theUserName = (String)session.getAttribute("user");
             theUser =  getUserByUsername(theUserName);
@@ -51,7 +52,7 @@ public class HomeController extends HttpServlet {
             for (Trip t : userTrips){
                 allUserTrips.add(t);
             }
-            Thread.currentThread().sleep(3000);
+            //Thread.currentThread().sleep(3000);
             for (Trip t : userTripsAttending){
                 allUserTrips.add(t);
             }

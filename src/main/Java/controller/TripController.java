@@ -1,9 +1,11 @@
 package controller;
 
 import entity.Location;
+import entity.Message;
 import entity.Trip;
 import entity.User;
 import persistence.GenericDao;
+import utilities.TripMessageUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,83 +43,34 @@ public class TripController extends HttpServlet {
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
         String theUser = (String)session.getAttribute("user");
-        Location tripLoc;
+
         List<User> users;
         User user;
-        LocalDate tripStart;
-        LocalDate tripEnd;
-        LocalDate thisDay;
-        LocalDate lastWeatherDay;
-        List<List<String>> rows = new ArrayList<List<String>>();
-        String day;
-        LocalDate selectedDay;
-        List<String> days = new ArrayList<String>();
 
-        String tripZip;
+        LocalDate thisDay;
+
+        List<List<String>> rows = new ArrayList<List<String>>();
+
+
+
+        List<Message> tripMessages = null;
+
+
 
         int i = 0;
-        int numDays;
+
 
         try{
             users = userDao.getByPropertyEqual("userName", theUser);
             user = users.get(0);
             trip = tripDao.getById(tripId);
-            tripLoc = trip.getLocation();
-            tripZip = tripLoc.getLocationZip();
-            tripStart = trip.getTripStartDate();
-            tripEnd = trip.getTripEndDate();
-            thisDay = LocalDate.now();
-            lastWeatherDay = thisDay.plusDays(15);
 
+            TripMessageUtil tmu = new TripMessageUtil(trip);
+            tripMessages = tmu.getWebViewMessages();
 
+            rows = getWeatherRows(trip);
 
-            //tripEnd = tripEnd.plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
-            List<LocalDate> dates = Stream.iterate(tripStart, date -> date.plusDays(1))
-                    .limit(ChronoUnit.DAYS.between(tripStart, tripEnd.plusDays(1)))
-                    .collect(Collectors.toList());
-
-            List<LocalDate> weatherDates = Stream.iterate(thisDay, date -> date.plusDays(1))
-                    .limit(ChronoUnit.DAYS.between(thisDay, lastWeatherDay.plusDays(1)))
-                    .collect(Collectors.toList());
-
-            numDays = dates.size();
-
-            for (i = 1; i <= numDays; i++){
-                selectedDay = dates.get(i-1);
-                if(i == numDays){
-                    System.out.println(i);
-                    if (weatherDates.contains(selectedDay)) {
-                        day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
-                    } else{
-                        day = "outOfRange";
-                    }
-
-                    days.add(day);
-                    rows.add(days);
-
-                }
-                else if (( i % 6) == 0){
-                    if (weatherDates.contains(selectedDay)) {
-                        day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
-                    } else{
-                        day = "outOfRange";
-                    }
-                    days.add(day);
-                    rows.add(days);
-                    System.out.println(days);
-                    days = new ArrayList<String>();
-                } else {
-                    System.out.println(i);
-                    if (weatherDates.contains(selectedDay)) {
-                        day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
-                    } else{
-                        day = "outOfRange";
-                    }
-                    System.out.println(day);
-                    days.add(day);
-                }
-            }
-            System.out.println(rows.toString());
+            req.setAttribute("tripMessages", tripMessages);
             req.setAttribute("trip", trip);
             req.setAttribute("user", user);
             req.setAttribute("weatherRows", rows);
@@ -127,20 +80,80 @@ public class TripController extends HttpServlet {
             e.printStackTrace();
 
         }
-        //get trip by parameter
-
-
-        //Get Weather information
-
-        //Get Message information
-
-        //Get Supply information??
-
-        //Redirect to trip jsp page
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
         dispatcher.forward(req, resp);
 
-
     }
+
+    private List<List<String>> getWeatherRows(Trip trip){
+        int numDays;
+        String tripZip;
+        String day;
+        LocalDate tripStart;
+        LocalDate tripEnd;
+        Location tripLoc;
+        LocalDate lastWeatherDay;
+        LocalDate thisDay;
+        LocalDate selectedDay;
+        List<String> days = new ArrayList<String>();
+        int i;
+
+
+        thisDay = LocalDate.now();
+        lastWeatherDay = thisDay.plusDays(4);
+        tripLoc = trip.getLocation();
+        tripZip = tripLoc.getLocationZip();
+        tripStart = trip.getTripStartDate();
+        tripEnd = trip.getTripEndDate();
+        List<List<String>> rows = new ArrayList<List<String>>();
+
+        //tripEnd = tripEnd.plusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+        List<LocalDate> dates = Stream.iterate(tripStart, date -> date.plusDays(1))
+                .limit(ChronoUnit.DAYS.between(tripStart, tripEnd.plusDays(1)))
+                .collect(Collectors.toList());
+
+        List<LocalDate> weatherDates = Stream.iterate(thisDay, date -> date.plusDays(1))
+                .limit(ChronoUnit.DAYS.between(thisDay, lastWeatherDay.plusDays(1)))
+                .collect(Collectors.toList());
+
+        numDays = dates.size();
+
+        for (i = 1; i <= numDays; i++){
+            selectedDay = dates.get(i-1);
+            if(i == numDays){
+
+                if (weatherDates.contains(selectedDay)) {
+                    day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
+                } else{
+                    day = "outOfRange";
+                }
+                days.add(day);
+                rows.add(days);
+            }
+            else if (( i % 6) == 0){
+                if (weatherDates.contains(selectedDay)) {
+                    day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
+                } else{
+                    day = "outOfRange";
+                }
+                days.add(day);
+                rows.add(days);
+
+                days = new ArrayList<String>();
+            } else {
+
+                if (weatherDates.contains(selectedDay)) {
+                    day = (weatherDates.indexOf(selectedDay)) + "-" + tripZip;
+                } else{
+                    day = "outOfRange";
+                }
+
+                days.add(day);
+            }
+        }
+        return rows;
+    }
+
+
 }
