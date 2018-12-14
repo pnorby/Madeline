@@ -85,7 +85,7 @@ public class GenericDao<T> {
         return trips;
     }
 
-    public List<Message> getMostRecentTen(Trip trip){
+    public List<Message> getMostRecentTen(Trip theTrip){
 
 
         Session session = getSession();
@@ -96,6 +96,8 @@ public class GenericDao<T> {
                 //session.createQuery(query).orderBy("sentDateTime").setMaxResults(10);
         Root<Message> root = query.from(Message.class);
         query.select(root).orderBy(builder.asc(root.get("sentDateTime")));
+        Expression<String> propertyPath = root.get("trip");
+        query.where(builder.equal(propertyPath, theTrip ));
         List<Message> messages = session.createQuery(query).setMaxResults(8).getResultList();
         session.close();
         return messages;

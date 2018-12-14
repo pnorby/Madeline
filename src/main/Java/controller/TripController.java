@@ -20,6 +20,7 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,16 +44,9 @@ public class TripController extends HttpServlet {
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
         String theUser = (String)session.getAttribute("user");
-
         List<User> users;
         User user;
-
-        LocalDate thisDay;
-
-        List<List<String>> rows = new ArrayList<List<String>>();
-
-
-
+        List<List<String>> rows;
         List<Message> tripMessages = null;
 
 
@@ -69,7 +63,8 @@ public class TripController extends HttpServlet {
             tripMessages = tmu.getWebViewMessages();
 
             rows = getWeatherRows(trip);
-
+            Set<Trip> userTrips = (Set<Trip>)session.getAttribute("allUserTrips");
+            req.setAttribute("userTrips", userTrips);
             req.setAttribute("tripMessages", tripMessages);
             req.setAttribute("trip", trip);
             req.setAttribute("user", user);

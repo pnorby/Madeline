@@ -18,11 +18,12 @@ public class TripMessageUtil {
     }
 
     public List<Message> getWebViewMessages(){
-        Set<Message> webViewMessages = null;
+
         List<Message> tripMessages = null;
 
         try{
             tripMessages = messageDao.getMostRecentTen(trip);
+            System.out.println(trip.getTripid());
 
         }
         catch(Exception e){

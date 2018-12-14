@@ -17,8 +17,14 @@
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12" id="messageBoard">
                 <c:forEach var="message" items="${tripMessages}">
                     <div class="row">
-
-                        <p style="color:black">${message.messageBody}</p>
+                        <c:choose>
+                            <c:when test="${message.user.userid eq user.userid}">
+                                <p class="sentP"><span class="userSent">${message.messageBody}</span></p>
+                            </c:when>
+                            <c:otherwise>
+                                <p class="receivedP"><span class="userReceived">${message.messageBody}</span></p>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
 
                 </c:forEach>

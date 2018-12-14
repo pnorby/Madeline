@@ -1,0 +1,14 @@
+
+>squid:S1989,"'Add a "try/catch" block for "parseInt".(ÈÂ½†
+osquid:S3776Y"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÀŸµg8ş¥å«ú,
+usquid:S22934"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìå³øùÿÿÿÿ
+?squid:S1148P"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1989U"&Add a "try/catch" block for "forward".(òø½
+|squid:S2293c"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿ8³¥ú«ú,
+=squid:S1989U"&Add a "try/catch" block for "forward".(òø½
+Jsquid:S14812",Remove this unused "thisDay" local variable.(î€ƒ8í×õ«ú,
+xsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(…Ù·ã8³¥ú«ú,
+Isquid:S1481<"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8”ñä«ú,
+osquid:S1192"KDefine a constant instead of duplicating this literal "outOfRange" 3 times.(Ş‚ ¥úÿÿÿÿ8ş¥å«ú,
+|squid:S2293m"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìå³øùÿÿÿÿ8Ú–ß«ú,
+isquid:CommentedOutCodeLineo"<This block of commented-out lines of code should be removed.(éø§ü8ş¥å«ú,

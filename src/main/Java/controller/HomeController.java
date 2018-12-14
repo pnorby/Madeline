@@ -59,7 +59,7 @@ public class HomeController extends HttpServlet {
 
 
 
-
+            session.setAttribute("allUserTrips", allUserTrips);
             req.setAttribute("userTrips", allUserTrips);
 
 

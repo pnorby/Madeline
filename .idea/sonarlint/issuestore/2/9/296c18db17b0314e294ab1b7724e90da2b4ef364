@@ -1,0 +1,9 @@
+
+?squid:S1148Y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+tsquid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(°ßø˜şÿÿÿÿ
+\squid:S22591"EA "NullPointerException" could be thrown; "theUser" is nullable here.(Œ£ÎÛ
+=squid:S1989J"&Add a "try/catch" block for "forward".(òø½
+osquid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ÛäÜì
+bsquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.(ë±²æ
+=squid:S1989J"&Add a "try/catch" block for "forward".(òø½
+?squid:S1148D"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

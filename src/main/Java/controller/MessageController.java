@@ -44,6 +44,7 @@ public class MessageController extends HttpServlet {
         LocalTime currentTime = LocalTime.now();
         LocalDate currentDay = LocalDate.now();
         LocalDateTime theSentTime = currentDay.atTime(currentTime);
+        String reDirectTo;
 
         try{
 
@@ -51,9 +52,13 @@ public class MessageController extends HttpServlet {
             trip = tripDao.getById(tripId);
             message = new Message(trip, user, theSentTime, tripMessage);
             messageDao.insert(message);
-
+            int tripInfo = trip.getTripid();
+            reDirectTo = "tripController?select=" + tripInfo;
             req.setAttribute("trip", trip);
             req.setAttribute("user", user);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher(reDirectTo);
+            dispatcher.forward(req, resp);
 
         }
         catch (Exception e){
@@ -61,10 +66,7 @@ public class MessageController extends HttpServlet {
 
         }
 
-        //Redirect to trip jsp page
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
-        dispatcher.forward(req, resp);
 
     }
 
