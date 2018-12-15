@@ -26,13 +26,9 @@ a:hover {
 
 html,
 body {
-    height: 100%;
 
-    background-image: url("../images/carribean.jpg");
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: dodgerblue;
+
 }
 
 body {
@@ -43,12 +39,15 @@ body {
 
 
 p {
-    margin-top: 20px;
+    margin: 5px 5px 5px 5px;
     color: black;
+}
+
+h1{
+    text-align: center;
 }
 
 .container {
     background-color: white;
 
 }
-

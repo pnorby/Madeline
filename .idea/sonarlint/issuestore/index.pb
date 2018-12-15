@@ -100,3 +100,5 @@ Q
 !src/main/Java/entity/Message.java,3/7/375342a6addb0bdfcfeb52f7bc327aeee55dcf83
 O
 src/main/webapp/tripContent.jsp,1/0/10324cd40c8168c8f2872c74000b67095e79530d
+U
+%src/main/webapp/CSS/viewTripStyle.css,d/4/d494b9720f859f4d064bc6a7d3a68708410d80fa

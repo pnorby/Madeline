@@ -1,19 +1,18 @@
 
-;squid:S19057"$Remove this unnecessary cast to "T".(Á§ô²
-@squid:S1481.")Remove this unused "root" local variable.(áÚƒ»
-fsquid:HiddenFieldCheckk"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
-isquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(ËÉ‹ô8¹ÿøªú,
-]squid:HiddenFieldCheck6";Rename "session" which hides the field declared at line 22.(‰æ
-dsquid:HiddenFieldCheck[";Rename "session" which hides the field declared at line 22.(‰æ8¹ÿøªú,
-Osquid:S1854."8Remove this useless assignment to local variable "root".(áÚƒ»
+fsquid:HiddenFieldCheckm"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
 Asquid:S1068"*Remove this unused "logger" private field.(æ×âÁ
-]squid:HiddenFieldCheckM";Rename "session" which hides the field declared at line 22.(‰æ
-]squid:HiddenFieldCheckj";Rename "session" which hides the field declared at line 22.(‰æ
-Hsquid:S1172X"+Remove this unused method parameter "trip".(“öÆ{8¹ÿøªú,
-fsquid:HiddenFieldCheckw"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
+isquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(ËÉ‹ô8¹ÿøªú,
+]squid:HiddenFieldCheckl";Rename "session" which hides the field declared at line 22.(‰æ
+;squid:S19057"$Remove this unnecessary cast to "T".(Á§ô²
 rsquid:S1450"VRemove the "session" field and declare it as a local variable in the relevant methods.(ÔÂòáÿÿÿÿÿ
 bsquid:UselessImportCheck
 "9Remove this unused import 'org.hibernate.SessionFactory'.(ñ¦«¬şÿÿÿÿ
-]squid:HiddenFieldCheckv";Rename "session" which hides the field declared at line 22.(‰æ
-]squid:HiddenFieldCheck+";Rename "session" which hides the field declared at line 22.(‰æ
 Fsquid:S1068"/Remove this unused "transaction" private field.(êíŒá
+]squid:HiddenFieldCheck+";Rename "session" which hides the field declared at line 22.(‰æ
+dsquid:HiddenFieldCheck[";Rename "session" which hides the field declared at line 22.(‰æ8¹ÿøªú,
+fsquid:HiddenFieldChecky"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
+@squid:S1481.")Remove this unused "root" local variable.(áÚƒ»
+]squid:HiddenFieldCheckx";Rename "session" which hides the field declared at line 22.(‰æ
+Osquid:S1854."8Remove this useless assignment to local variable "root".(áÚƒ»
+]squid:HiddenFieldCheck6";Rename "session" which hides the field declared at line 22.(‰æ
+]squid:HiddenFieldCheckM";Rename "session" which hides the field declared at line 22.(‰æ

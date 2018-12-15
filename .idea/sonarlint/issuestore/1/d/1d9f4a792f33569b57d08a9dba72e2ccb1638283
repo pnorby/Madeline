@@ -1,7 +1,5 @@
 
-?squid:S1148<"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
-Tsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+?squid:S1148A"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
 Csquid:S1989+"'Add a "try/catch" block for "parseInt".(ýÚŒ¯ÿÿÿÿÿ
-=squid:S1989C"&Add a "try/catch" block for "forward".(òø½
-=squid:S1989C"&Add a "try/catch" block for "forward".(òø½
+Tsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
 >squid:S1989*"'Add a "try/catch" block for "parseInt".(ÈÂ½†
