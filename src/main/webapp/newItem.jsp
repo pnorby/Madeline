@@ -22,13 +22,16 @@
 </head>
 <body>
 <div class="container">
-    <c:if test="aUser">
+    <c:if test="${aUser}">
+        <h1>Add New User</h1>
         <%@include file="/newUser.jsp"%>
     </c:if>
-    <c:if test="aTrip">
+    <c:if test="${aTrip}">
+        <h1>Add New Trip</h1>
         <%@include file="/newTrip.jsp"%>
     </c:if>
-    <c:if test="aLocation">
+    <c:if test="${aLocation}">
+        <h1>Add New Location</h1>
         <%@include file="/newLocation.jsp"%>
     </c:if>
 </div>

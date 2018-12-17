@@ -45,7 +45,7 @@
 </div>
 
 <div class="row">
-    <p>Add New <img src="images/add.jpg"/></p>
+    <p id="addButton">Add New <a id="addThis" href="/Madeline/addUpdateDirector?itemType=User&actionType=add"><img id="addPic" src="images/add.jpg"/></a></p>
 </div>
 
 <div id="adminData" class="row">

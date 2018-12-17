@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * A simple servlet to welcome the user.
@@ -39,14 +40,17 @@ public class directToAddUpdate extends HttpServlet {
         try{
 
             if (addOrUpdate.equals("add")){
-                forwardTo = "newItem.jsp";
+                forwardTo = "/newItem.jsp";
 
                 if(itemType.equals("User")){
 
                     aUser = true;
                     req.setAttribute("aUser", aUser);
                 } else if (itemType.equals("Trip")){
+                    GenericDao<Location> locDao = new GenericDao<>(Location.class);
 
+                    List<Location> locations = locDao.getAll();
+                    req.setAttribute("locations", locations);
                     aTrip = true;
                     req.setAttribute("aTrip", aTrip);
 
@@ -58,7 +62,7 @@ public class directToAddUpdate extends HttpServlet {
                 }
 
             } else if (addOrUpdate.equals("update")){
-                forwardTo = "updateItem.jsp";
+                forwardTo = "/updateItem.jsp";
                 itemId = req.getParameter("itemId");
                 theId = Integer.parseInt(itemId);
 
