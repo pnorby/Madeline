@@ -48,6 +48,7 @@ public class TripController extends HttpServlet {
         User user;
         List<List<String>> rows;
         List<Message> tripMessages = null;
+        Set<User> attendees = null;
 
 
 
@@ -58,12 +59,14 @@ public class TripController extends HttpServlet {
             users = userDao.getByPropertyEqual("userName", theUser);
             user = users.get(0);
             trip = tripDao.getById(tripId);
+            attendees = trip.getUsers();
 
             TripMessageUtil tmu = new TripMessageUtil(trip);
             tripMessages = tmu.getWebViewMessages();
 
             rows = getWeatherRows(trip);
             Set<Trip> userTrips = (Set<Trip>)session.getAttribute("allUserTrips");
+            req.setAttribute("attendees", attendees);
             req.setAttribute("userTrips", userTrips);
             req.setAttribute("tripMessages", tripMessages);
             req.setAttribute("trip", trip);
@@ -135,7 +138,7 @@ public class TripController extends HttpServlet {
                 days.add(day);
                 rows.add(days);
 
-                days = new ArrayList<String>();
+                days = new ArrayList<>();
             } else {
 
                 if (weatherDates.contains(selectedDay)) {

@@ -1,5 +1,6 @@
 package entity;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -46,7 +47,7 @@ import java.util.Set;
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Message> messages = new HashSet<>();
 
-    @ManyToMany(mappedBy = "tripsAttending")
+    @ManyToMany(mappedBy = "tripsAttending", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private Set<User> users = new HashSet<>();
 
 

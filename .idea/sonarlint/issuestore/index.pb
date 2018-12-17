@@ -102,3 +102,13 @@ O
 src/main/webapp/tripContent.jsp,1/0/10324cd40c8168c8f2872c74000b67095e79530d
 U
 %src/main/webapp/CSS/viewTripStyle.css,d/4/d494b9720f859f4d064bc6a7d3a68708410d80fa
+[
++src/main/Java/controller/DirectToAdmin.java,9/4/94b07f0f2ecd3a14b7bb27857fbcff5bd88e4762
+I
+src/main/webapp/admin.jsp,1/6/16c841072742f24edfb63d62f4da7ea207d6a9cd
+]
+-src/main/Java/controller/AdminController.java,a/f/aff55ae770d5df592413aa9beccfa6f5a0cf0010
+M
+src/main/webapp/CSS/admin.css,e/1/e1e9d27b18087be6255ee6c0ab194acdad19ca45
+X
+(src/main/webapp/JsFiles/loadAdminData.js,e/3/e3bed1b821f330503083521e2cdcc7b9c7659172

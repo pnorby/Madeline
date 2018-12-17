@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <div id="tripWeather">
 <c:forEach var="newRow" items="${weatherRows}">
     <div class="row">

@@ -1,12 +1,11 @@
 
+>squid:S1989-"'Add a "try/catch" block for "parseInt".(ÈÂ½†
+osquid:S3776T"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÀŸµg8—Ç¼Õú,
 isquid:CommentedOutCodeLinej"<This block of commented-out lines of code should be removed.(éø§ü8—Ç¼Õú,
-|squid:S2293^"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿ8—Ç¼Õú,
-nsquid:S1192|"KDefine a constant instead of duplicating this literal "outOfRange" 3 times.(Ş‚ ¥úÿÿÿÿ8—Ç¼Õú,
 Fsquid:S1148K"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8—Ç¼Õú,
 |squid:S2293h"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìå³øùÿÿÿÿ8—Ç¼Õú,
-osquid:S3776T"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÀŸµg8—Ç¼Õú,
->squid:S1989-"'Add a "try/catch" block for "parseInt".(ÈÂ½†
+|squid:S2293^"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿ8—Ç¼Õú,
+Dsquid:S1989P"&Add a "try/catch" block for "forward".(òø½8—Ç¼Õú,
+nsquid:S1192|"KDefine a constant instead of duplicating this literal "outOfRange" 3 times.(Ş‚ ¥úÿÿÿÿ8—Ç¼Õú,
+Dsquid:S1989P"&Add a "try/catch" block for "forward".(òø½8—Ç¼Õú,
 Isquid:S14816"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8—Ç¼Õú,
-Dsquid:S1989P"&Add a "try/catch" block for "forward".(òø½8—Ç¼Õú,
-Dsquid:S1989P"&Add a "try/catch" block for "forward".(òø½8—Ç¼Õú,
-xsquid:S2293Š"YReplace the type specification in this constructor call with the diamond operator ("<>").(…Ù·ã8—Ç¼Õú,

@@ -1,15 +1,17 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     var dates = $(".tripDay");
     var latLonServiceCalled = false;
     var weatherServiceCalled = false;
-    console.log(dates.length);
 
-    if(dates.length !== 0){
+
+    if (dates.length !== 0) {
+        console.log(dates.length);
         var i = 0;
         var lengthDates = dates.length;
 
-        while(i < lengthDates){
+        while (i < lengthDates) {
+            console.log(i);
             var date = dates[i].id;
             var selectedDay = dates[i];
             var dayInfo = "";
@@ -17,21 +19,28 @@ $(document).ready(function(){
             var order;
             var weatherParms;
 
-                if (date === "outOfRange") {
-                    var noWeather = $("<p>");
-                    noWeather.Text = "Date must be less than 16 days in the future";
-                    selectedDay.append(noWeather);
-                    console.log("made it into out of range");
-                    i++;
-                } else {
-                    dayInfo = selectedDay.id;
-                    weatherParms = dayInfo.split("-");
-                    order = weatherParms[0];
-                    zipCode = weatherParms[1];
-                    console.log("made it into else1");
-                    console.log(order);
-                    console.log(zipCode);
+            if (date == "outOfRange") {
+                var outRange = $("<p>");
+                var outRangeImg = $("<img src=\"images/outsideRange.png\"/>");
+                outRange.append(outRangeImg);
 
+                console.log("made it into out of range");
+                $(".tripDay").eq(i).append(outRange);
+
+                i++;
+            } else {
+
+
+                var weather = $("<p>");
+                var weatherImg = $("<img class=\"weatherPic\" src=\"images/sunWRain.png\"/>");
+                weather.append(weatherImg)
+                $(".tripDay").eq(i).append(weather);
+                dayInfo = selectedDay.id;
+                weatherParms = dayInfo.split("-");
+                order = weatherParms[0];
+                zipCode = weatherParms[1];
+
+                if (latLonServiceCalled == false) {
                     var xhr = new XMLHttpRequest();
                     var firstUrl = "http://api.geonames.org/postalCodeSearchJSON?postalcode=" + zipCode + "&maxRows=10&username=pnorby";
                     var lat;
@@ -45,14 +54,14 @@ $(document).ready(function(){
                         if (xhr.readyState == 4 && xhr.status == 200) {
 
                             var result = JSON.parse(xhr.responseText);
-                            console.log(result);
+
                             var lat = result.postalCodes[0].lat;
                             lat = Math.round(lat);
-                            console.log(lat);
+
 
                             var lng = result.postalCodes[0].lng;
                             lng = Math.round(lng);
-                            console.log(lng);
+
                             var city = result.postalCodes[0].placeName;
 
                             var secondUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lng + "&appid=62768ee3cbbc1b180d8a1bba286f9929";
@@ -75,8 +84,12 @@ $(document).ready(function(){
                     }
 
                     xhr.send(null);
-                    i = dates.length;
+
+                    latLonServiceCalled = true;
                 }
+
+                i++;
+            }
         }
     }
 });

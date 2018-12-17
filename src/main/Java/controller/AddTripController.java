@@ -41,10 +41,9 @@ public class AddTripController extends HttpServlet {
         int tripLocId = Integer.parseInt(tripLocation);
         //will need to be a drop down value for now
         String tripName = req.getParameter("tripName");
-        //String startDate = req.getParameter("startDate");
-        //String endDate = req.getParameter("endDate");
-        String startDate = "2018-12-10";
-        String endDate = "2018-12-24";
+        String startDate = req.getParameter("startDate");
+        String endDate = req.getParameter("endDate");
+
         LocalDate startDay = LocalDate.parse(startDate);
         LocalDate endDay = LocalDate.parse(endDate);
         String userName = (String)session.getAttribute("user");
@@ -53,9 +52,7 @@ public class AddTripController extends HttpServlet {
             users = userDao.getByPropertyEqual("userName", userName);
             theUser = users.get(0);
             theLocation = locationDao.getById(tripLocId);
-            System.out.println(userName);
-            System.out.println(startDate + endDate);
-            System.out.println(tripName);
+
             aTrip = new Trip(theLocation, tripName, startDay, endDay, theUser);
             tripDao.insert(aTrip);
 
