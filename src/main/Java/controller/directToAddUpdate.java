@@ -74,6 +74,9 @@ public class directToAddUpdate extends HttpServlet {
                     req.setAttribute("aUser", aUser);
                 } else if (itemType.equals("Trip")){
                     GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
+                    GenericDao<Location> locDao = new GenericDao<>(Location.class);
+                    List<Location> locations = locDao.getAll();
+                    req.setAttribute("locations", locations);
                     Trip trip = tripDao.getById(theId);
                     req.setAttribute("theTrip", trip);
                     aTrip = true;

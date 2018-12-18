@@ -1,11 +1,11 @@
 
+Ssquid:UselessImportCheck"(Remove this unused import 'entity.Trip'.(Î©ä€8°Éûú,
 =squid:S1989#"&Add a "try/catch" block for "forward".(òø½
 Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8ìĞÊûú,
-Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8°Éûú,
-Ssquid:UselessImportCheck"(Remove this unused import 'entity.Trip'.(Î©ä€8°Éûú,
-^squid:UselessImportCheck"3Remove this unused import 'persistence.GenericDao'.(«®¡µ8Ğˆåûú,
-=squid:S1989#"&Add a "try/catch" block for "forward".(òø½
-Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8ìĞÊûú,
-Xsquid:UselessImportCheck"(Remove this unused import 'entity.User'.(Ï£Šûıÿÿÿÿ8Ğˆåûú,
-Wsquid:UselessImportCheck",Remove this unused import 'entity.Location'.(ñÛ°¹8¯Éûú,
 [squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ü‡äûú,
+Xsquid:UselessImportCheck"(Remove this unused import 'entity.User'.(Ï£Šûıÿÿÿÿ8Ğˆåûú,
+Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8ìĞÊûú,
+=squid:S1989#"&Add a "try/catch" block for "forward".(òø½
+^squid:UselessImportCheck"3Remove this unused import 'persistence.GenericDao'.(«®¡µ8Ğˆåûú,
+Wsquid:UselessImportCheck",Remove this unused import 'entity.Location'.(ñÛ°¹8¯Éûú,
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8°Éûú,

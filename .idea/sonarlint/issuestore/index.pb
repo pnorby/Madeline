@@ -112,3 +112,15 @@ M
 src/main/webapp/CSS/admin.css,e/1/e1e9d27b18087be6255ee6c0ab194acdad19ca45
 X
 (src/main/webapp/JsFiles/loadAdminData.js,e/3/e3bed1b821f330503083521e2cdcc7b9c7659172
+K
+src/main/webapp/newTrip.jsp,8/8/88f801d6591512c74a49c0ddc7a13ecc1693c0d3
+O
+src/main/webapp/newLocation.jsp,5/5/558b6fec7836aa8563d4da96e6763fdcb88b681b
+K
+src/main/webapp/newUser.jsp,e/b/ebcc5cd3926b329b4ce0715e5ef041d813b7c77b
+^
+.src/main/Java/controller/DeleteController.java,6/a/6a3909a0c1b6b8d3b68ef27204a1f6be1c1836c0
+_
+/src/main/Java/controller/directToAddUpdate.java,f/8/f87827da8ee3a0f4fe9ff674cec3d10a98e953f8
+K
+src/main/webapp/newItem.jsp,4/b/4b6e9b5a87f5c1bc6f311fc8ca5a877dfb212f25

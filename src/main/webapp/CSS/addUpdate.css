@@ -1,0 +1,20 @@
+header, footer, nav, section, article, aside {
+    display: block;
+}
+
+label {
+    width: 25%;
+}
+
+body{
+    background-color: teal;
+}
+
+h1{
+    color: black;
+}
+
+.container{
+    background-color:white;
+    color:black;
+}

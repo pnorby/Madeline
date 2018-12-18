@@ -104,6 +104,20 @@ public class GenericDao<T> {
 
     }
 
+    /**
+     /**
+     * Update an BusinessEntity
+     *
+     * @param entity BusinessEntity to be inserted or updated
+     */
+    public void saveOrUpdate(T entity) {
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.saveOrUpdate(entity);
+        transaction.commit();
+        session.close();
+    }
+
     public void delete (T entity){
         Session session = getSession();
         Transaction transaction = session.beginTransaction();

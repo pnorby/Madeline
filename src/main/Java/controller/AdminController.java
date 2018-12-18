@@ -88,7 +88,7 @@ public class AdminController extends HttpServlet {
             propFour = u.getLastName();
             propFive = u.getEmail();
 
-            printer.print("<tr><td>" + propOne + "</td><td>" + propTwo + "</td><td>" + propThree + "</td><td>" + propFour + "</td><td>" + propFive + "</td><td><img src=\"images/pencil.jpg\"</td><td><a href=\"/Madeline/deleteItem?itemType=User&id=" + propOne + "\"><img src=\"images/delete.png\"/></a></td></tr>");
+            printer.print("<tr><td>" + propOne + "</td><td>" + propTwo + "</td><td>" + propThree + "</td><td>" + propFour + "</td><td>" + propFive + "</td><td><a href=\"/Madeline/addUpdateDirector?itemType=User&actionType=update&itemId=" + propOne + "\"><img src=\"images/pencil.jpg\"/></a></td><td><a href=\"/Madeline/deleteItem?itemType=User&id=" + propOne + "\"><img src=\"images/delete.png\"/></a></td></tr>");
 
         }
         printer.print("</tbody>");
@@ -114,7 +114,7 @@ public class AdminController extends HttpServlet {
                 propFive = t.getTripStartDate().toString();
                 propSix = t.getTripEndDate().toString();
 
-                printer.print("<tr><td>" + propOne + "</td><td>" + propTwo + "</td><td>" + propThree + "</td><td>" + propFour + "</td><td>" + propFive + "</td><td>" + propSix + "</td><td><img src=\"images/pencil.jpg\"</td><td><a href=\"/Madeline/deleteItem?itemType=Trip&id=" + propOne + "\"><img src=\"images/delete.png\"/></a></td></tr>");
+                printer.print("<tr><td>" + propOne + "</td><td>" + propTwo + "</td><td>" + propThree + "</td><td>" + propFour + "</td><td>" + propFive + "</td><td>" + propSix + "</td><td><a href=\"/Madeline/addUpdateDirector?itemType=Trip&actionType=update&itemId=" + propOne + "\"><img src=\"images/pencil.jpg\"/></a></td><td><a href=\"/Madeline/deleteItem?itemType=Trip&id=" + propOne + "\"><img src=\"images/delete.png\"/></a></td></tr>");
             }
             printer.print("</tbody>");
             printer.print("<tfoot><tr><th>TripId</th><th>TripLocation</th><th>TripCreator</th><th>TripName</th><th>TripStart</th><th>TripEnd</th><th>Edit</th><th>Delete</th></tr></tfoot>");
@@ -145,7 +145,7 @@ public class AdminController extends HttpServlet {
                 propSeven = l.getLocationDescription();
                 propEight = l.getLocationType();
 
-                printer.print("<tr><td>" + propOne + "</td><td>" + propTwo + "</td><td>" + propThree + "</td><td>" + propFour + "</td><td>" + propFive + "</td><td>" + propSix + "</td><td>" + propSeven + "</td><td>" + propEight + "</td><td><img src=\"images/pencil.jpg\"</td><td><a href=\"/Madeline/deleteItem?itemType=Location&id=" + propOne + "\"><img src=\"images/delete.png\"/></a></td></tr>");
+                printer.print("<tr><td>" + propOne + "</td><td>" + propTwo + "</td><td>" + propThree + "</td><td>" + propFour + "</td><td>" + propFive + "</td><td>" + propSix + "</td><td>" + propSeven + "</td><td>" + propEight + "</td><td><a href=\"/Madeline/addUpdateDirector?itemType=Location&actionType=update&itemId=" + propOne + "\"><img src=\"images/pencil.jpg\"/></a></td><td><a href=\"/Madeline/deleteItem?itemType=Location&id=" + propOne + "\"><img src=\"images/delete.png\"/></a></td></tr>");
 
             }
             printer.print("</tbody>");
