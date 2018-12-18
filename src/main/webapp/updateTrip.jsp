@@ -4,7 +4,7 @@
     <input type="text" id="tName" name="tripName" placeholder="${theTrip.tripName}"/>
     <br/>
     <label for="tTripCreator">Trip Creator (User Id):</label>
-    <input type="text" id="tTripcreator" name="userId" placeholder="${theTrip.tripCreator}"/>
+    <input type="text" id="tTripcreator" name="userId" placeholder="${theTrip.tripCreator.userid}"/>
     <br/>
     <label for="tStartDate">Start Date</label>
     <input type="text" id="tStartDate" name="startDate" placeholder="${theTrip.tripStartDate}"/>

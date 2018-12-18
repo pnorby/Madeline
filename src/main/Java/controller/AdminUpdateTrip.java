@@ -27,7 +27,7 @@ import java.util.List;
 
 public class AdminUpdateTrip extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
         GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
@@ -38,32 +38,49 @@ public class AdminUpdateTrip extends HttpServlet {
         String tripId = req.getParameter("tripId");
         int theTripId = Integer.parseInt(tripId);
         String userId = req.getParameter("userId");
-        int theId = Integer.parseInt(userId);
+        int theId;
         User theUser;
         Location theLocation;
         String tripLocation = req.getParameter("tripLocation");
-        int tripLocId = Integer.parseInt(tripLocation);
+        int tripLocId;
         //will need to be a drop down value for now
         String tripName = req.getParameter("tripName");
         String startDate = req.getParameter("startDate");
         String endDate = req.getParameter("endDate");
 
-        LocalDate startDay = LocalDate.parse(startDate);
-        LocalDate endDay = LocalDate.parse(endDate);
-        String userName = (String)session.getAttribute("user");
+        LocalDate startDay;
+        LocalDate endDay;
 
         try{
-            theUser = userDao.getById(theId);
-
-
-            theLocation = locationDao.getById(tripLocId);
-
             aTrip = tripDao.getById(theTripId);
-            aTrip.setTripName(tripName);
-            aTrip.setTripStartDate(startDay);
-            aTrip.setTripEndDate(endDay);
-            aTrip.setLocation(theLocation);
-            aTrip.setTripCreator(theUser);
+
+            if(strCheck(userId)){
+                theId = Integer.parseInt(userId);
+                theUser = userDao.getById(theId);
+                aTrip.setTripCreator(theUser);
+
+            }
+
+            if(strCheck(tripLocation)){
+                tripLocId = Integer.parseInt(tripLocation);
+                theLocation = locationDao.getById(tripLocId);
+                aTrip.setLocation(theLocation);
+            }
+
+            if(strCheck(tripName)){
+                aTrip.setTripName(tripName);
+            }
+
+            if(strCheck(startDate)){
+                startDay = LocalDate.parse(startDate);
+                aTrip.setTripStartDate(startDay);
+            }
+
+            if(strCheck(endDate)){
+                endDay = LocalDate.parse(endDate);
+                aTrip.setTripEndDate(endDay);
+            }
+
 
             tripDao.saveOrUpdate(aTrip);
 
@@ -77,8 +94,15 @@ public class AdminUpdateTrip extends HttpServlet {
         }
 
 
+    }
 
+    private Boolean strCheck(String s){
+        Boolean passes = false;
 
+        if(s != null && !s.isEmpty()) {
+            passes = true;
+        }
 
+        return passes;
     }
 }
