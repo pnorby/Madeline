@@ -146,3 +146,13 @@ N
 src/main/webapp/updateTrip.jsp,6/7/67fb4394c5831ffbcbaf4eccedc42aa3d427ce56
 ]
 -src/main/Java/controller/AdminUpdateTrip.java,1/1/116f83fb0da742636e646dc4145ffec604f6d2ce
+Q
+!src/main/webapp/JsFiles/homeJS.js,2/7/2711948aac98a9917142492e531a4cd0c6eb3344
+O
+src/main/webapp/loggedInTwo.jsp,c/6/c6eb3a6e6076d78e940d0903f5c4bdcc5f388510
+O
+src/main/webapp/CSS/homeTwo.css,c/6/c6c010ebb01df90998fc7eafce0a75ed38620295
+`
+0src/main/Java/controller/JoinTripController.java,b/2/b214cbf77832d6f84ea52f5283b1542d0e58d824
+b
+2src/main/Java/controller/SendInviteController.java,5/6/5642063f6ae8d4659706f713f4cfd0f33b76f319

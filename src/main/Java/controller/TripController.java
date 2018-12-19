@@ -4,6 +4,8 @@ import entity.Location;
 import entity.Message;
 import entity.Trip;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import utilities.TripMessageUtil;
 
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
@@ -34,6 +37,7 @@ import java.util.stream.Stream;
 )
 
 public class TripController extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -44,7 +48,7 @@ public class TripController extends HttpServlet {
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
         String theUser = (String)session.getAttribute("user");
-        System.out.println(theUser);
+
         List<User> users;
         User user;
         List<List<String>> rows;
@@ -61,12 +65,12 @@ public class TripController extends HttpServlet {
             users = userDao.getByPropertyEqual("userName", theUser);
             user = users.get(0);
             String useName = user.getUserName();
-            System.out.println(useName);
-            System.out.println(useName);
+
             trip = tripDao.getById(tripId);
             attendees = trip.getUsers();
 
             User tCreator = trip.getTripCreator();
+            attendees.add(tCreator);
             if(tCreator.getUserid() == user.getUserid()){
                 isCreator = true;
                 req.setAttribute("isTripCreator", isCreator);
@@ -88,7 +92,13 @@ public class TripController extends HttpServlet {
 
         }
         catch (Exception e){
-            e.printStackTrace();
+            logger.error("There was a problem loading a trip");
+            String responseMessage = "An error was encountered, please contact an administrator if problem persists";
+            resp.setHeader("Refresh", "3; URL=homeController");
+            resp.setContentType("text/html");
+            PrintWriter out  = resp.getWriter();
+            out.print("<h1>" + responseMessage + "</h1>");
+            out.close();
 
         }
 
@@ -175,7 +185,7 @@ public class TripController extends HttpServlet {
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
         String theUser = (String)session.getAttribute("user");
-        System.out.println(theUser);
+
         List<User> users;
         User user;
         List<List<String>> rows;
@@ -191,8 +201,7 @@ public class TripController extends HttpServlet {
             users = userDao.getByPropertyEqual("userName", theUser);
             user = users.get(0);
             String useName = user.getUserName();
-            System.out.println(useName);
-            System.out.println(useName);
+
             trip = tripDao.getById(tripId);
             attendees = trip.getUsers();
 

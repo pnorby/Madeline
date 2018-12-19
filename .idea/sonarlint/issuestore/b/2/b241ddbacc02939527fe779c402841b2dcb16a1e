@@ -1,11 +1,29 @@
 
-isquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(éø§ü8®¥‡Âû,
-Fsquid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8®¥‡Âû,
-|squid:S2293k"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìå³øùÿÿÿÿ8®¥‡Âû,
-osquid:S3776W"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÀŸµg8®¥‡Âû,
-nsquid:S1192"KDefine a constant instead of duplicating this literal "outOfRange" 3 times.(Ş‚ ¥úÿÿÿÿ8®¥‡Âû,
-Dsquid:S1989S"&Add a "try/catch" block for "forward".(òø½8®¥‡Âû,
-Isquid:S14817"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8—Ç¼Õú,
+osquid:S1192Œ"KDefine a constant instead of duplicating this literal "outOfRange" 3 times.(Ş‚ ¥úÿÿÿÿ8®¥‡Âû,
+V
+squid:S106A"9Replace this use of System.out or System.err by a logger.(Äñ©¸8Æ”Ê£ü,
+V
+squid:S106@"9Replace this use of System.out or System.err by a logger.(Äñ©¸8›’°£ü,
 >squid:S1989-"'Add a "try/catch" block for "parseInt".(ÈÂ½†
-Dsquid:S1989S"&Add a "try/catch" block for "forward".(òø½8®¥‡Âû,
-|squid:S2293a"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿ8®¥‡Âû,
+Dsquid:S1989`"&Add a "try/catch" block for "forward".(òø½8®¥‡Âû,
+[
+squid:S106/"9Replace this use of System.out or System.err by a logger.(È®É±ÿÿÿÿÿ8¸Àú¢ü,
+Dsquid:S1989`"&Add a "try/catch" block for "forward".(òø½8®¥‡Âû,
+osquid:S3776d"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÀŸµg8®¥‡Âû,
+|squid:S2293n"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿ8®¥‡Âû,
+Isquid:S14819"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8—Ç¼Õú,
+Esquid:S1989Ú"&Add a "try/catch" block for "forward".(òø½8®†Í¤ü,
+Jsquid:S1481»"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8®†Í¤ü,
+Esquid:S1989Ú"&Add a "try/catch" block for "forward".(òø½8®†Í¤ü,
+Ysquid:S1161©":Add the "@Override" annotation above this method signature(üª¼í8®†Í¤ü,
+isquid:CommentedOutCodeLinez"<This block of commented-out lines of code should be removed.(éø§ü8®¥‡Âû,
+W
+squid:S106Â"9Replace this use of System.out or System.err by a logger.(Äñ©¸8®†Í¤ü,
+Fsquid:S1148["#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8®¥‡Âû,
+Gsquid:S1148Õ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8®†Í¤ü,
+Fsquid:S1989°"'Add a "try/catch" block for "parseInt".(ÈÂ½†8®†Í¤ü,
+\
+squid:S106²"9Replace this use of System.out or System.err by a logger.(È®É±ÿÿÿÿÿ8®†Í¤ü,
+|squid:S2293x"YReplace the type specification in this constructor call with the diamond operator ("<>").(ìå³øùÿÿÿÿ8®¥‡Âû,
+W
+squid:S106Ã"9Replace this use of System.out or System.err by a logger.(Äñ©¸8®†Í¤ü,

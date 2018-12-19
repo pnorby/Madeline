@@ -1,6 +1,8 @@
 package controller;
 
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -24,6 +27,7 @@ import java.util.*;
 )
 
 public class AdminUpdateUser extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     GenericDao<User> userDao = new GenericDao<>(User.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -64,7 +68,7 @@ public class AdminUpdateUser extends HttpServlet {
                 theUser.setEmail(email);
             }
 
-            System.out.println(theUser);
+
             userDao.saveOrUpdate(theUser);
 
 
@@ -75,7 +79,14 @@ public class AdminUpdateUser extends HttpServlet {
             dispatcher.forward(req, resp);
         }
         catch(Exception e){
-            e.printStackTrace();
+            logger.error("There was a problem updating the user");
+
+            String responseMsg = "An error was encountered, please contact an administrator if problem persists";
+            resp.setHeader("Refresh", "3; URL=homeController");
+            resp.setContentType("text/html");
+            PrintWriter out  = resp.getWriter();
+            out.print("<h1>" + responseMsg + "</h1>");
+            out.close();
         }
 
 

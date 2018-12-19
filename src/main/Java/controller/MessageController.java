@@ -3,6 +3,8 @@ package controller;
 import entity.Message;
 import entity.Trip;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -27,6 +30,8 @@ import java.util.List;
 )
 
 public class MessageController extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -37,9 +42,9 @@ public class MessageController extends HttpServlet {
         Trip trip;
         Message message;
         String tripIdNum = req.getParameter("tripNo");
-        System.out.println(tripIdNum);
+
         String userIdNum = req.getParameter("uNo");
-        System.out.println(userIdNum);
+
         String tripMessage = req.getParameter("tripMessage");
 
         LocalTime currentTime = LocalTime.now();
@@ -64,7 +69,14 @@ public class MessageController extends HttpServlet {
 
         }
         catch (Exception e){
-            e.printStackTrace();
+
+            logger.error("There was a problem sending the message");
+            String responseMessage = "An error was encountered, please contact an administrator if problem persists";
+            resp.setHeader("Refresh", "3; URL=homeController");
+            resp.setContentType("text/html");
+            PrintWriter out  = resp.getWriter();
+            out.print("<h1>" + responseMessage + "</h1>");
+            out.close();
 
         }
 

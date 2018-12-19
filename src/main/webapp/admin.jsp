@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<%@include file="/loggedIn.jsp"%>
 <div class="container">
 <h1>Administration Portal</h1>
 

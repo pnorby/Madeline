@@ -1,0 +1,26 @@
+
+[
+squid:S106e"9Replace this use of System.out or System.err by a logger.(¶±ã”øÿÿÿÿ8‘Î¨ü,
+isquid:CommentedOutCodeLinem"<This block of commented-out lines of code should be removed.(¶ˆíù8“Ñ—©ü,
+asquid:S1854F">Remove this useless assignment to local variable "senderName".(ÏŞÙÄøÿÿÿÿ8éıú©ü,
+^squid:S1854/";Remove this useless assignment to local variable "userDao".(Ëø÷ëşÿÿÿÿ8öäß¦ü,
+Osquid:S1481/",Remove this unused "userDao" local variable.(Ëø÷ëşÿÿÿÿ8öäß¦ü,
+nsquid:CommentedOutCodeLinep"<This block of commented-out lines of code should be removed.(„Åç–ûÿÿÿÿ8ÁÜ˜©ü,
+[
+squid:S106d"9Replace this use of System.out or System.err by a logger.(áÍıŸøÿÿÿÿ8Œıä§ü,
+Ysquid:S1854)";Remove this useless assignment to local variable "session".(ôÜ½¯8×’¤ ü,
+isquid:CommentedOutCodeLineK"<This block of commented-out lines of code should be removed.(©øÍ†8×’¤ ü,
+isquid:CommentedOutCodeLineV"<This block of commented-out lines of code should be removed.(š¸ñÅ8®²Ä¨ü,
+Osquid:S14818"1Remove this unused "returnToTrip" local variable.(öÑì8×’¤ ü,
+Gsquid:S1148„"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8§‘î¨ü,
+[
+squid:S106U"9Replace this use of System.out or System.err by a logger.(ÇÌû°øÿÿÿÿ8ğ™©ü,
+U
+squid:S106T"9Replace this use of System.out or System.err by a logger.(ƒ¦º_8ğ™©ü,
+Msquid:S14813"/Remove this unused "senderName" local variable.( âş÷8éıú©ü,
+gsquid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8×’¤ ü,
+nsquid:CommentedOutCodeLinej"<This block of commented-out lines of code should be removed.(Ëü¼×øÿÿÿÿ8•ı—©ü,
+isquid:CommentedOutCodeLineg"<This block of commented-out lines of code should be removed.(ÑØ†…8Ü”˜©ü,
+[
+squid:S106<"9Replace this use of System.out or System.err by a logger.(¬¿¯ùÿÿÿÿ8ÅƒÚ§ü,
+Jsquid:S1481)",Remove this unused "session" local variable.(ôÜ½¯8×’¤ ü,

@@ -1,0 +1,7 @@
+
+Ysquid:S1854 ";Remove this useless assignment to local variable "session".(τά½―8­τ• ό,
+Jsquid:S1481 ",Remove this unused "session" local variable.(τά½―8­τ• ό,
+Wsquid:UselessImportCheck",Remove this unused import 'entity.Location'.(ρΫ°Ή8­τ• ό,
+`squid:S1854="=Remove this useless assignment to local variable "forwardTo".(όÒΐρύÿÿÿÿ8­τ• ό,
+Fsquid:S1148\"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8­τ• ό,
+`squid:S1854<"CRemove this useless assignment to local variable "responseMessage".(®Ίθ{8­τ• ό,

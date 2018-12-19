@@ -1,9 +1,9 @@
 
-Msquid:S00108O")Either remove or fill this block of code.(ñ“Š±üÿÿÿÿ8‡›§ûû,
-Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8‡›§ûû,
 [squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8‡›§ûû,
-Xsquid:UselessImportCheck"(Remove this unused import 'entity.User'.(Ï£Šûýÿÿÿÿ8‡›§ûû,
-Jsquid:S1989#"'Add a "try/catch" block for "parseInt".(³Ó’¾ÿÿÿÿÿ8‡›§ûû,
 Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8‡›§ûû,
-Ssquid:UselessImportCheck"(Remove this unused import 'entity.Trip'.(Î©ä€8‡›§ûû,
+Jsquid:S1989#"'Add a "try/catch" block for "parseInt".(³Ó’¾ÿÿÿÿÿ8‡›§ûû,
+Msquid:S00108O")Either remove or fill this block of code.(ñ“Š±üÿÿÿÿ8‡›§ûû,
 `squid:UselessImportCheck"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8‡›§ûû,
+Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8‡›§ûû,
+Ssquid:UselessImportCheck"(Remove this unused import 'entity.Trip'.(Î©ä€8‡›§ûû,
+Xsquid:UselessImportCheck"(Remove this unused import 'entity.User'.(Ï£Šûýÿÿÿÿ8‡›§ûû,

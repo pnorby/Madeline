@@ -9,6 +9,8 @@ import com.mailjet.client.resource.Contact;
 import com.mailjet.client.resource.Email;
 import entity.Trip;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.GenericDao;
@@ -36,6 +38,7 @@ import static com.mailjet.client.resource.Email.resource;
 )
 
 public class SendInviteController extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -57,7 +60,7 @@ public class SendInviteController extends HttpServlet {
         String responseMessage = "There was an error sending your invitation, please try again or contact an administrator";
 
         try{
-           System.out.println("made it into send email servlet");
+
 
             client = new MailjetClient(System.getenv("1cbd843a91f3fe6333b051557f200656"), System.getenv("956e34cece8d391082163a41743fd2c6"));
 
@@ -81,8 +84,7 @@ public class SendInviteController extends HttpServlet {
 
 
                 response = client.post(request);
-                System.out.println(response.getStatus());
-                System.out.println(response.getData());
+
                 /*JSONObject message = new JSONObject();
                 message.put(Emailv31.Message.FROM, new JSONObject()
                         .put(Emailv31.Message.EMAIL, "pnorby@madisoncollege.edu")
@@ -97,17 +99,16 @@ public class SendInviteController extends HttpServlet {
                 email = new MailjetRequest(Emailv31.resource).property(Emailv31.MESSAGES, (new JSONArray()).put(message));
 
                 response = client.post(email);*/
-                System.out.println("made it into sendIt");
-                System.out.println(recipientEmail);
+
 
                 //JSONArray recipients;
 
 
                 //recipients = new JSONArray().put(new JSONObject().put(Contact.EMAIL, recipientEmail));
-                //System.out.println(recipients);
+
 
                 //email = new MailjetRequest(Email.resource).property(Email.FROMNAME, senderName).property(Email.FROMEMAIL, "pnorby@madisoncollege.edu").property(Email.SUBJECT, "You've been invited on a trip by" + senderName).property(Email.TEXTPART, "Paste this link into your browser! LINK " + "http://localhost:8080/Madeline/joinTrip?recipientEmail=" + recipientEmail + "&trip=" + tripId).property(Email.RECIPIENTS, recipients).property(Email.MJCUSTOMID, "JAVA-Email");
-                //System.out.println(email);
+
 
                 //response = client.post(email);
 
@@ -129,7 +130,14 @@ public class SendInviteController extends HttpServlet {
 
         }
         catch(Exception e){
-            e.printStackTrace();
+            logger.error("There was a problem sending the email invitation");
+
+            String responseMsg = "An error was encountered, please contact an administrator if problem persists";
+            resp.setHeader("Refresh", "3; URL=homeController");
+            resp.setContentType("text/html");
+            PrintWriter out  = resp.getWriter();
+            out.print("<h1>" + responseMsg + "</h1>");
+            out.close();
         }
 
     }

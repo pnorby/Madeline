@@ -17,23 +17,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="CSS/home.css" rel="stylesheet">
+    <link href="CSS/homeTwo.css" rel="stylesheet">
 </head>
 <body>
 <c:choose>
 <c:when test="${loggedIn}">
 <%@include file="/loggedIn.jsp"%>
-
+    <div class="container">
     <H1>Plan Your Trip!</H1>
     <br />
     <br />
     <form method="POST" action="addTripController">
         <label for="tName">Trip Name:</label>
         <input type="text" id="tName" name="tripName"/>
+        <br/>
         <label for="tStartDate">Start Date</label>
         <input type="text" id="tStartDate" name="startDate"/>
+        <br/>
         <label for="tEndDate">End Date</label>
         <input type="text" id="tEndDate" name="endDate"/>
+        <br/>
         <label for="tLocation">Location:</label>
         <select id="tLocation" name="tripLocation">
             <c:forEach var="loc" items="${locations}" >
@@ -52,3 +55,6 @@
 </c:otherwise>
 
 </c:choose>
+</div>
+</body>
+</html>

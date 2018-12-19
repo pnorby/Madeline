@@ -3,6 +3,8 @@ package controller;
 import entity.Location;
 import entity.Trip;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -28,7 +30,7 @@ import java.util.Set;
 )
 
 public class AdminController extends HttpServlet {
-
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -63,7 +65,14 @@ public class AdminController extends HttpServlet {
 
         }
         catch(Exception e){
-            e.printStackTrace();
+            logger.error("There was a problem loading the data");
+
+            String responseMsg = "An error was encountered, please contact an administrator if problem persists";
+            resp.setHeader("Refresh", "3; URL=homeController");
+            resp.setContentType("text/html");
+            PrintWriter out  = resp.getWriter();
+            out.print("<h1>" + responseMsg + "</h1>");
+            out.close();
         }
 
     }

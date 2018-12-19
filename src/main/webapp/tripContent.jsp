@@ -64,7 +64,7 @@
                 </c:if>
                 <c:forEach var="person" items="${attendees}">
                     <div class="row">
-                        <p class="attending">${person.firstName} ${person.lastName}</p>
+                        <p class="attending">&#9679${person.firstName} ${person.lastName}</p>
                     </div>
                 </c:forEach>
             <h2 class="infoLabel">Attendees</h2>
