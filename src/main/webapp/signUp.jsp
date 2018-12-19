@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,6 +33,10 @@
     <input type="password" id="inputPassword" class="form-control" name="pWord" placeholder="Password" required>
     <label for="inputPasswordConfirm" class="sr-only">Confirm Password</label>
     <input type="password" id="inputPasswordConfirm" class="form-control" name="pWordConfirm" placeholder="Password Confirmation" required>
+
+    <c:if test="${joiningTrip}">
+        <input type="hidden" id="firstTrip" name="tripId" value="${theTrip}"/>
+    </c:if>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>

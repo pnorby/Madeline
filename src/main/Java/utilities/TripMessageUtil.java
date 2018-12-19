@@ -23,6 +23,7 @@ public class TripMessageUtil {
 
         try{
             tripMessages = messageDao.getMostRecentTen(trip);
+            System.out.println("The trip is trip no. ");
             System.out.println(trip.getTripid());
 
         }

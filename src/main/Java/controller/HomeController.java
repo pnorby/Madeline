@@ -34,11 +34,12 @@ public class HomeController extends HttpServlet {
         //Get Trip Names and Ids to display on home page
 
         String theUserName;
-        theUserName = (String)session.getAttribute("user");
+
         User theUser = null;
         Set<Trip> userTrips = null;
         Set<Trip> userTripsAttending = null;
         Set<Trip> allUserTrips = new HashSet<>();
+        Boolean hasTrips = false;
 
 
 
@@ -57,9 +58,15 @@ public class HomeController extends HttpServlet {
                 allUserTrips.add(t);
             }
 
+            if (allUserTrips.size() == 0){
+                req.setAttribute("hasTrips", hasTrips);
+            } else{
+                hasTrips = true;
+                req.setAttribute("hasTrips", hasTrips);
+                session.setAttribute("allUserTrips", allUserTrips);
+                req.setAttribute("userTrips", allUserTrips);
+            }
 
-            session.setAttribute("allUserTrips", allUserTrips);
-            req.setAttribute("userTrips", allUserTrips);
 
 
         }

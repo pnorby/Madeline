@@ -19,6 +19,9 @@ a:hover {
     border: .05rem solid #fff;
 }
 
+.tripLabels{
+    margin-left: 2em;
+}
 
 /*
  * Base structure
@@ -57,7 +60,9 @@ p {
     border-radius: 8px;
 }
 
-
+#msgLabel {
+    color: black;
+}
 h2{
 
     font-size: 18pt;
@@ -72,6 +77,11 @@ h2{
     bottom:0;
 }
 #messageBoard{
+    background-color: white;
+    border-radius: 5px;
+}
+
+#packingList{
     background-color: white;
     border-radius: 5px;
 }
@@ -116,6 +126,8 @@ h2{
 #attendees{
     position: relative;
     text-align: center;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .container {

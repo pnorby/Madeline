@@ -44,11 +44,13 @@ public class TripController extends HttpServlet {
         String tripIdNum = req.getParameter("select");
         int tripId = Integer.parseInt(tripIdNum);
         String theUser = (String)session.getAttribute("user");
+        System.out.println(theUser);
         List<User> users;
         User user;
         List<List<String>> rows;
         List<Message> tripMessages = null;
         Set<User> attendees = null;
+        Boolean isCreator = false;
 
 
 
@@ -58,8 +60,19 @@ public class TripController extends HttpServlet {
         try{
             users = userDao.getByPropertyEqual("userName", theUser);
             user = users.get(0);
+            String useName = user.getUserName();
+            System.out.println(useName);
+            System.out.println(useName);
             trip = tripDao.getById(tripId);
             attendees = trip.getUsers();
+
+            User tCreator = trip.getTripCreator();
+            if(tCreator.getUserid() == user.getUserid()){
+                isCreator = true;
+                req.setAttribute("isTripCreator", isCreator);
+            }else {
+                req.setAttribute("isTripCreator", isCreator);
+            }
 
             TripMessageUtil tmu = new TripMessageUtil(trip);
             tripMessages = tmu.getWebViewMessages();
@@ -151,6 +164,59 @@ public class TripController extends HttpServlet {
             }
         }
         return rows;
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        //Get Trip information
+        GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+        Trip trip;
+        String tripIdNum = req.getParameter("select");
+        int tripId = Integer.parseInt(tripIdNum);
+        String theUser = (String)session.getAttribute("user");
+        System.out.println(theUser);
+        List<User> users;
+        User user;
+        List<List<String>> rows;
+        List<Message> tripMessages = null;
+        Set<User> attendees = null;
+
+
+
+        int i = 0;
+
+
+        try{
+            users = userDao.getByPropertyEqual("userName", theUser);
+            user = users.get(0);
+            String useName = user.getUserName();
+            System.out.println(useName);
+            System.out.println(useName);
+            trip = tripDao.getById(tripId);
+            attendees = trip.getUsers();
+
+            TripMessageUtil tmu = new TripMessageUtil(trip);
+            tripMessages = tmu.getWebViewMessages();
+
+            rows = getWeatherRows(trip);
+            Set<Trip> userTrips = (Set<Trip>)session.getAttribute("allUserTrips");
+            req.setAttribute("attendees", attendees);
+            req.setAttribute("userTrips", userTrips);
+            req.setAttribute("tripMessages", tripMessages);
+            req.setAttribute("trip", trip);
+            req.setAttribute("user", user);
+            req.setAttribute("weatherRows", rows);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+
+        }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/trip.jsp");
+        dispatcher.forward(req, resp);
+
     }
 
 

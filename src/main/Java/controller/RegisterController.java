@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Trip;
 import entity.User;
 import persistence.GenericDao;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -37,9 +39,14 @@ public class RegisterController extends HttpServlet {
         String username = req.getParameter("userName");
         String password = req.getParameter("pWord");
         String passwordConfirm = req.getParameter("pWordConfirm");
+        String tripForJoiner = req.getParameter("tripId");
         String returnMessage = null;
         String forwardTo = null;
         Boolean usernameOkay = null;
+        Set<Trip> startList = null;
+        Trip firstTrip;
+        GenericDao<Trip> tripDao = new GenericDao<>(Trip.class);
+        User newUser;
 
 
 
@@ -57,14 +64,21 @@ public class RegisterController extends HttpServlet {
             if (usernameOkay.equals(null) || usernameOkay.equals(false)) {
                 returnMessage = "Username Already In Use";
             } else {
+                newUser = new User(firstName, lastName, username, email, password);
+
+                if (strCheck(tripForJoiner)){
+                    int firstTripId = Integer.parseInt(tripForJoiner);
+                    firstTrip = tripDao.getById(firstTripId);
+                    startList.add(firstTrip);
+                    newUser.setTripsAttending(startList);
+                    int someUser = genDao.insert(newUser);
 
 
-                User newUser = new User(firstName, lastName, username, email, password);
+                } else {
 
-                 int someUser = genDao.insert(newUser);
-
+                    int someUser = genDao.insert(newUser);
+                }
                 returnMessage = "Success!";
-
             }
 
             forwardTo = "/Madeline/signIn.jsp";
@@ -75,7 +89,10 @@ public class RegisterController extends HttpServlet {
 
 
         resp.setHeader("Refresh", "3; URL=" + forwardTo);
-
+        resp.setContentType("text/html");
+        PrintWriter out  = resp.getWriter();
+        out.print("<h1>" + returnMessage + "</h1>");
+        out.close();
         //re-direct to home controller sending user
 
         //RequestDispatcher dispatcher = req.getRequestDispatcher(forwardTo);
@@ -96,5 +113,15 @@ public class RegisterController extends HttpServlet {
         }
 
         return userNameAvailable;
+    }
+
+    private Boolean strCheck(String s){
+        Boolean passes = false;
+
+        if(s != null && !s.isEmpty()) {
+            passes = true;
+        }
+
+        return passes;
     }
 }

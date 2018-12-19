@@ -1,5 +1,5 @@
 
-Csquid:S1481",Remove this unused "session" local variable.(ôÜ½¯
-Jsquid:S1989 "'Add a "try/catch" block for "parseInt".(Ç‰Âÿÿÿÿÿ8ƒ™êÎû,
-Rsquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯
 Fsquid:S1148<"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ƒ™êÎû,
+Jsquid:S1989 "'Add a "try/catch" block for "parseInt".(Ç‰Âÿÿÿÿÿ8ƒ™êÎû,
+Csquid:S1481",Remove this unused "session" local variable.(ôÜ½¯
+Rsquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯

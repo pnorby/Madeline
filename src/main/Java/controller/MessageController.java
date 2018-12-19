@@ -37,17 +37,19 @@ public class MessageController extends HttpServlet {
         Trip trip;
         Message message;
         String tripIdNum = req.getParameter("tripNo");
+        System.out.println(tripIdNum);
         String userIdNum = req.getParameter("uNo");
+        System.out.println(userIdNum);
         String tripMessage = req.getParameter("tripMessage");
-        int tripId = Integer.parseInt(tripIdNum);
-        int userId = Integer.parseInt(userIdNum);
+
         LocalTime currentTime = LocalTime.now();
         LocalDate currentDay = LocalDate.now();
         LocalDateTime theSentTime = currentDay.atTime(currentTime);
         String reDirectTo;
 
         try{
-
+            int tripId = Integer.parseInt(tripIdNum);
+            int userId = Integer.parseInt(userIdNum);
             user = userDao.getById(userId);
             trip = tripDao.getById(tripId);
             message = new Message(trip, user, theSentTime, tripMessage);

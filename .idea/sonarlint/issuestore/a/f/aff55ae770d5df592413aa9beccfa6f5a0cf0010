@@ -1,14 +1,14 @@
 
-lsquid:S1192`"IDefine a constant instead of duplicating this literal "</table>" 3 times.(ù‘úÿÿÿÿÿÿ8”¡àşú,
-isquid:S1192["KDefine a constant instead of duplicating this literal "</td><td>" 16 times.(¸¡Î8ı÷Öşú,
-squid:S1192["rDefine a constant instead of duplicating this literal "\"><img src=\"images/delete.png\"/></a></td></tr>" 3 times.(¸¡Î8è©›Ïû,
-Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8ÆœÀüú,
-Ysquid:S1854"";Remove this useless assignment to local variable "session".(ôÜ½¯8ÆœÀüú,
-ksquid:S1192P"HDefine a constant instead of duplicating this literal "<tbody>" 3 times.(ä§¡êùÿÿÿÿ8Å¢òşú,
-fsquid:S1192^"IDefine a constant instead of duplicating this literal "</tbody>" 3 times.(›ä¦8ìÈôşú,
-gsquid:S1192["IDefine a constant instead of duplicating this literal "<tr><td>" 3 times.(¸¡Î8ÆœÀüú,
-»squid:S1192N"œDefine a constant instead of duplicating this literal "<table id=\"allRecords\" class=\"table table-striped table-bordered\" style=\"width:100%\">" 3 times.(Äæš8ÆœÀüú,
-gsquid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8ÆœÀüú,
 Fsquid:S1148B"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÆœÀüú,
 Jsquid:S1481"",Remove this unused "session" local variable.(ôÜ½¯8ÆœÀüú,
 Xsquid:UselessImportCheck".Remove this unused import 'java.util.HashSet'.(Ê‚êX8ÆœÀüú,
+Ysquid:S1854"";Remove this useless assignment to local variable "session".(ôÜ½¯8ÆœÀüú,
+lsquid:S1192`"IDefine a constant instead of duplicating this literal "</table>" 3 times.(ù‘úÿÿÿÿÿÿ8”¡àşú,
+fsquid:S1192^"IDefine a constant instead of duplicating this literal "</tbody>" 3 times.(›ä¦8ìÈôşú,
+•squid:S1192["rDefine a constant instead of duplicating this literal "\"><img src=\"images/delete.png\"/></a></td></tr>" 3 times.(ŸáÒÿÿÿÿÿ8è©›Ïû,
+»squid:S1192N"œDefine a constant instead of duplicating this literal "<table id=\"allRecords\" class=\"table table-striped table-bordered\" style=\"width:100%\">" 3 times.(Äæš8ÆœÀüú,
+ksquid:S1192P"HDefine a constant instead of duplicating this literal "<tbody>" 3 times.(ä§¡êùÿÿÿÿ8Å¢òşú,
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ8ÆœÀüú,
+lsquid:S1192["IDefine a constant instead of duplicating this literal "<tr><td>" 3 times.(ŸáÒÿÿÿÿÿ8ÆœÀüú,
+nsquid:S1192["KDefine a constant instead of duplicating this literal "</td><td>" 16 times.(ŸáÒÿÿÿÿÿ8ı÷Öşú,
+gsquid:UselessImportCheck"<Remove this unused import 'javax.servlet.RequestDispatcher'.(Ëöò¼8ÆœÀüú,

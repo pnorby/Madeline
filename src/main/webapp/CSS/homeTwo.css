@@ -1,0 +1,179 @@
+/*  StyleSheet for portfolio education page*/
+
+header, footer, nav, section, article, aside {
+    display: block;
+}
+
+html {
+    /* The image used */
+    /*background-image: url("../images01/education.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: cadetblue;
+}
+.container{
+    height: 100%;
+    background-color: white;
+}
+#homeAccordion {
+    padding: 2em;
+}
+
+#featuredLoc{
+    text-align:center;
+}
+
+#featureP {
+    font-size: 16pt;
+}
+
+.navbar-inverse {
+    margin-bottom: 0;
+}
+
+.row {
+    padding: 1em;
+}
+
+#firstSection {
+    background-color: #182432;
+}
+
+img {
+    width: 100%;
+}
+
+.textBook {
+    padding: 1em;
+}
+
+.classDescription{
+    color: purple;
+    background-color: white;
+    font-family: "Georgia", Times, serif;
+}
+.upToDate{
+    color: black;
+    background-color: white;
+    font-family: "Georgia", Times, serif;
+}
+#phpBook {
+    padding: 1em;
+}
+h1{
+    font-family: "Georgia", Times, serif;
+    color: darkblue;
+    text-align: center;
+    padding: .3em;
+    font-size: 48pt;
+
+}
+
+h3{
+    text-align: center;
+    font-size: 40pt;
+}
+@media screen and (min-width: 1401px){
+    h3 {
+        padding: .3em;
+    }
+    .classDescription {
+        font-size: 16pt;
+    }
+    .upToDate {
+        font-size: 14pt;
+    }
+
+    h1 {
+        font-size: 48pt;
+    }
+}
+@media screen and (max-width: 1400px){
+    .classDescription {
+        font-size: 20pt;
+    }
+    .upToDate {
+        font-size: 14pt;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 48pt;
+        padding:  .3em;
+    }
+
+    .row {
+        padding: .5em;
+    }
+}
+@media screen and (max-width: 1100px){
+    .classDescription {
+        font-size: 24pt;
+    }
+    .upToDate {
+        font-size: 20pt;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 42pt;
+        padding: .5em;
+    }
+
+    h3{
+        text-align: center;
+        font-size: 36pt;
+    }
+
+    .row {
+        padding: .5em;
+    }
+}
+@media screen and (max-width: 767px){
+    .classDescription {
+        font-size: 20pt;
+    }
+    .upToDate {
+        font-size: 18pt;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 36pt;
+        padding: .5em;
+    }
+
+    h3{
+        text-align: center;
+        font-size: 32pt;
+    }
+
+    .row {
+        padding: .5em;
+    }
+}
+@media screen and (max-width: 480px){
+    h3 {
+        padding: .3em;
+        font-size: 28pt;
+    }
+
+    .classDescription {
+        font-size: 16pt;
+    }
+    h1 {
+        font-size: 34pt;
+        padding: .2em;
+    }
+}
+
+.container {
+    background-color: white;
+    opacity: .9;
+}

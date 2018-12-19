@@ -1,18 +1,20 @@
 
-Osquid:S1854."8Remove this useless assignment to local variable "root".(áÚƒ»
-fsquid:HiddenFieldChecky"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
-]squid:HiddenFieldCheckM";Rename "session" which hides the field declared at line 22.(‰æ
-isquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(ËÉ‹ô8¹ÿøªú,
+fsquid:HiddenFieldCheck{"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
 dsquid:HiddenFieldCheck[";Rename "session" which hides the field declared at line 22.(‰æ8¹ÿøªú,
+]squid:HiddenFieldCheckM";Rename "session" which hides the field declared at line 22.(‰æ
 ]squid:HiddenFieldCheck+";Rename "session" which hides the field declared at line 22.(‰æ
-]squid:HiddenFieldCheckx";Rename "session" which hides the field declared at line 22.(‰æ
-rsquid:S1450"VRemove the "session" field and declare it as a local variable in the relevant methods.(ÔÂòáÿÿÿÿÿ
-]squid:HiddenFieldCheck6";Rename "session" which hides the field declared at line 22.(‰æ
-]squid:HiddenFieldCheckl";Rename "session" which hides the field declared at line 22.(‰æ
-fsquid:HiddenFieldCheckm"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
 ;squid:S19057"$Remove this unnecessary cast to "T".(Á§ô²
+dsquid:HiddenFieldCheckr";Rename "session" which hides the field declared at line 22.(‰æ8ôîòşû,
+Osquid:S1854."8Remove this useless assignment to local variable "root".(áÚƒ»
+]squid:HiddenFieldCheckz";Rename "session" which hides the field declared at line 22.(‰æ
+^squid:HiddenFieldCheck†";Rename "session" which hides the field declared at line 22.(‰æ
+]squid:HiddenFieldCheck6";Rename "session" which hides the field declared at line 22.(‰æ
+Hsquid:S1068"*Remove this unused "logger" private field.(æ×âÁ8Ë´òşû,
+isquid:CommentedOutCodeLine`"<This block of commented-out lines of code should be removed.(ËÉ‹ô8¹ÿøªú,
 @squid:S1481.")Remove this unused "root" local variable.(áÚƒ»
-Asquid:S1068"*Remove this unused "logger" private field.(æ×âÁ
-Fsquid:S1068"/Remove this unused "transaction" private field.(êíŒá
+ysquid:S1450"VRemove the "session" field and declare it as a local variable in the relevant methods.(ÔÂòáÿÿÿÿÿ8ôîòşû,
 bsquid:UselessImportCheck
 "9Remove this unused import 'org.hibernate.SessionFactory'.(ñ¦«¬şÿÿÿÿ
+gsquid:HiddenFieldCheck‡"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ
+Msquid:S1068"/Remove this unused "transaction" private field.(êíŒá8É¢óşû,
+msquid:HiddenFieldChecks"?Rename "transaction" which hides the field declared at line 23.(¹æ¢üÿÿÿÿ8É¢óşû,

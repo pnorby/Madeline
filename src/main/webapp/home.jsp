@@ -3,31 +3,74 @@
 <html >
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="JsFiles/homeJS.js" type="text/javascript" charset="utf-8"></script>
 
-    <title>Home</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="CSS/home.css" rel="stylesheet">
+    <link href="CSS/homeTwo.css" rel="stylesheet">
 
 </head>
 <body>
 <c:choose>
     <c:when test="${loggedIn}">
-<%@include file="/loggedIn.jsp"%>
+<%@include file="/loggedInTwo.jsp"%>
 
-<div id="container" class="container">
+<div class="container">
     <div id="main_content">
+        <h1>Welcome</h1>
 
+
+        <c:choose>
+            <c:when test="${hasTrips}">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="homeAccordion">
+                    <h2>My Trips</h2>
+                    <div id="accordion">
+
+                        <c:forEach var="trip" items="${userTrips}">
+                            <h3>${trip.tripName}</h3>
+                            <div>
+                                <p>${trip.location.locationName}</p>
+                                <br />
+                                <p>Starts: ${trip.tripStartDate}</p>
+                                <br />
+                                <p>Ends: ${trip.tripEndDate}
+                                    <br />
+                                <p>${trip.location.locationDescription}</p>
+                            </div>
+                        </c:forEach>
+
+
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="homeAccordion">
+                    <h2>My Trips</h2>
+                    <div id="accordion">
+                            <h3>You currently have no trips planned</h3>
+                            <div>
+                                <p>Use the links above to plan your first trip!</p>
+                            </div>
+
+                    </div>
+                </div>
+            </c:otherwise>
+        </c:choose>
+
+
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" id="featuredLoc">
+    <h2>Today's Featured Location</h2>
+    <img src="images/mtrushmore.jpg"/>
+    <p id="featureP">Mount Rushmore is a beautiful landmark in the Black Hills in Keystone, South Dakota. </p>
+</div>
     </div>
 </div>
 
