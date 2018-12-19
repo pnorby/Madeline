@@ -1,7 +1,7 @@
 
-Ysquid:S1854 ";Remove this useless assignment to local variable "session".(ôÜ½¯8­ô• ü,
-Jsquid:S1481 ",Remove this unused "session" local variable.(ôÜ½¯8­ô• ü,
+Fsquid:S1989e"(Add a "try/catch" block for "getWriter".(¾šçÞ8ùçØ¿ü,
 Wsquid:UselessImportCheck",Remove this unused import 'entity.Location'.(ñÛ°¹8­ô• ü,
-`squid:S1854="=Remove this useless assignment to local variable "forwardTo".(üÒÀñýÿÿÿÿ8­ô• ü,
-Fsquid:S1148\"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8­ô• ü,
-`squid:S1854<"CRemove this useless assignment to local variable "responseMessage".(®ºè{8­ô• ü,
+Jsquid:S1481$",Remove this unused "session" local variable.(ôÜ½¯8­ô• ü,
+Ysquid:S1854$";Remove this useless assignment to local variable "session".(ôÜ½¯8­ô• ü,
+`squid:S1854A"=Remove this useless assignment to local variable "forwardTo".(üÒÀñýÿÿÿÿ8­ô• ü,
+`squid:S1854@"CRemove this useless assignment to local variable "responseMessage".(®ºè{8­ô• ü,

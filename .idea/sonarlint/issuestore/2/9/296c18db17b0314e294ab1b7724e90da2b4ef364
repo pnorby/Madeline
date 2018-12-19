@@ -1,10 +1,10 @@
 
-=squid:S1989P"&Add a "try/catch" block for "forward".(òø½
+?squid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 =squid:S1989P"&Add a "try/catch" block for "forward".(òø½
 osquid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ÛäÜì
-bsquid:CommentedOutCodeLine8"<This block of commented-out lines of code should be removed.(ë±²æ
+=squid:S1989P"&Add a "try/catch" block for "forward".(òø½
 \squid:S22592"EA "NullPointerException" could be thrown; "theUser" is nullable here.(Œ£ÎÛ
-?squid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-\squid:S1155=">Use isEmpty() to check whether the collection is empty or not.(˜…àš8±Ù‚¥ü,
-?squid:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 tsquid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(°ßø˜şÿÿÿÿ
+?squid:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+\squid:S1155=">Use isEmpty() to check whether the collection is empty or not.(˜…àš8±Ù‚¥ü,
+bsquid:CommentedOutCodeLine8"<This block of commented-out lines of code should be removed.(ë±²æ

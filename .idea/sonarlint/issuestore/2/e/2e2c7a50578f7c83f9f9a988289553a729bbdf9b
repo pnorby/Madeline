@@ -1,17 +1,17 @@
 
-_squid:S1854O"<Remove this useless assignment to local variable "someUser".( Çûÿÿÿÿÿ8ÌáÏ ü,
-Fsquid:S1148W"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ç¬Ä ü,
-–squid:S2159@"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(Ë¼›úÿÿÿÿ
+nsquid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.(•‘íÖşÿÿÿÿ8Ç¬Ä ü,
+Fsquid:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ç¬Ä ü,
+tsquid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(÷áÖ£ÿÿÿÿÿ
+Tsquid:S2589@"8Remove this expression which always evaluates to "false"(Ë¼›úÿÿÿÿ
+Csquid:S1481!",Remove this unused "session" local variable.(ôÜ½¯
+_squid:S1854J"<Remove this useless assignment to local variable "someUser".( Çûÿÿÿÿÿ8»ßÔ ü,
 fsquid:S2259@"JA "NullPointerException" could be thrown; "usernameOkay" is nullable here.(Ë¼›úÿÿÿÿ
 jsquid:S2259H"GA "NullPointerException" could be thrown; "startList" is nullable here.(‹ôºĞûÿÿÿÿ8Ú‘È ü,
-tsquid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(÷áÖ£ÿÿÿÿÿ
-_squid:S1854J"<Remove this useless assignment to local variable "someUser".( Çûÿÿÿÿÿ8»ßÔ ü,
-Fsquid:S1148p"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ç¬Ä ü,
-Fsquid:S1989]"(Add a "try/catch" block for "getWriter".(¾šçŞ8Ç¬Ä ü,
 ]squid:UselessImportCheck"9Remove this unused import 'javax.servlet.ServletContext'.(á¡æŞ
-Csquid:S1481!",Remove this unused "session" local variable.(ôÜ½¯
-Tsquid:S2589@"8Remove this expression which always evaluates to "false"(Ë¼›úÿÿÿÿ
-nsquid:CommentedOutCodeLineb"<This block of commented-out lines of code should be removed.(•‘íÖşÿÿÿÿ8Ç¬Ä ü,
+Fsquid:S1989]"(Add a "try/catch" block for "getWriter".(¾šçŞ8Ç¬Ä ü,
 Psquid:S1481O"-Remove this unused "someUser" local variable.( Çûÿÿÿÿÿ8ÌáÏ ü,
-Psquid:S1481J"-Remove this unused "someUser" local variable.( Çûÿÿÿÿÿ8»ßÔ ü,
 Rsquid:S1854!";Remove this useless assignment to local variable "session".(ôÜ½¯
+–squid:S2159@"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(Ë¼›úÿÿÿÿ
+Psquid:S1481J"-Remove this unused "someUser" local variable.( Çûÿÿÿÿÿ8»ßÔ ü,
+_squid:S1854O"<Remove this useless assignment to local variable "someUser".( Çûÿÿÿÿÿ8ÌáÏ ü,
+Fsquid:S1148W"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ç¬Ä ü,

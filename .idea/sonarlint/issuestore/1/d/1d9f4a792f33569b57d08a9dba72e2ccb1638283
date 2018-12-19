@@ -1,7 +1,3 @@
 
-?squid:S1148C"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Tsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
-V
-squid:S106*"9Replace this use of System.out or System.err by a logger.(áÎ8ãşÕ¢ü,
-V
-squid:S106("9Replace this use of System.out or System.err by a logger.(ÒĞÙ8¹‡Õ¢ü,
+Tsquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+Fsquid:S1989M"(Add a "try/catch" block for "getWriter".(¾šçŞ8¡É¿¿ü,

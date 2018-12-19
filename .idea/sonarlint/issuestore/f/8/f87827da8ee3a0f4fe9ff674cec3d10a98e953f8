@@ -1,7 +1,7 @@
 
-Fsquid:S1148f"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÿºåÑû,
-lsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦¼ßÕ8ÿºåÑû,
-Dsquid:S1989k"&Add a "try/catch" block for "forward".(òø½8ÿºåÑû,
-Dsquid:S1989k"&Add a "try/catch" block for "forward".(òø½8ÿºåÑû,
-Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8ÿºåÑû,
-Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8ÿºåÑû,
+Fsquid:S1989o"(Add a "try/catch" block for "getWriter".(¾šçŞ8¤ıæ¿ü,
+Jsquid:S1481"",Remove this unused "session" local variable.(ôÜ½¯8ÿºåÑû,
+Dsquid:S1989v"&Add a "try/catch" block for "forward".(òø½8ÿºåÑû,
+lsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦¼ßÕ8ÿºåÑû,
+Dsquid:S1989v"&Add a "try/catch" block for "forward".(òø½8ÿºåÑû,
+Ysquid:S1854"";Remove this useless assignment to local variable "session".(ôÜ½¯8ÿºåÑû,

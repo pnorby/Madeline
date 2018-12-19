@@ -156,3 +156,5 @@ O
 0src/main/Java/controller/JoinTripController.java,b/2/b214cbf77832d6f84ea52f5283b1542d0e58d824
 b
 2src/main/Java/controller/SendInviteController.java,5/6/5642063f6ae8d4659706f713f4cfd0f33b76f319
+M
+src/main/webapp/errorPage.jsp,6/2/623298baba5501f97cbba1bfb86226a0924b84bc

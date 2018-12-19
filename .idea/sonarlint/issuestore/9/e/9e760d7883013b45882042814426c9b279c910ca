@@ -1,12 +1,12 @@
 
-Osquid:S1481/"1Remove this unused "someLocation" local variable.(Ğ·€8ÏûÎ÷û,
-Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8ÏûÎ÷û,
-Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8ÏûÎ÷û,
+Dsquid:S1989C"&Add a "try/catch" block for "forward".(òø½8ÏûÎ÷û,
+Jsquid:S1481#",Remove this unused "session" local variable.(ôÜ½¯8ÏûÎ÷û,
 Xsquid:UselessImportCheck"(Remove this unused import 'entity.User'.(Ï£Šûıÿÿÿÿ8ÏûÎ÷û,
+Dsquid:S1989C"&Add a "try/catch" block for "forward".(òø½8ÏûÎ÷û,
+[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ÏûÎ÷û,
 Ssquid:UselessImportCheck"(Remove this unused import 'entity.Trip'.(Î©ä€8ÏûÎ÷û,
-Dsquid:S19898"&Add a "try/catch" block for "forward".(òø½8ÏûÎ÷û,
-^squid:S1854/"@Remove this useless assignment to local variable "someLocation".(Ğ·€8ÏûÎ÷û,
-[squid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ÏûÎ÷û,
-Dsquid:S19898"&Add a "try/catch" block for "forward".(òø½8ÏûÎ÷û,
-Msquid:S001082")Either remove or fill this block of code.(ñ“Š±üÿÿÿÿ8ÏûÎ÷û,
-`squid:UselessImportCheck"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÏûÎ÷û,
+Osquid:S14813"1Remove this unused "someLocation" local variable.(Ğ·€8ÏûÎ÷û,
+Ysquid:S1854#";Remove this useless assignment to local variable "session".(ôÜ½¯8ÏûÎ÷û,
+Fsquid:S1989<"(Add a "try/catch" block for "getWriter".(¾šçŞ8÷øä¿ü,
+^squid:S18543"@Remove this useless assignment to local variable "someLocation".(Ğ·€8ÏûÎ÷û,
+`squid:UselessImportCheck"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8ÏûÎ÷û,

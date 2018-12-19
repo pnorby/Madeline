@@ -1,15 +1,13 @@
 
-{squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Ëø÷ëşÿÿÿÿ8ªº…ùû,
-Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8ØÂèøû,
-Esquid:S1989""'Add a "try/catch" block for "parseInt".(ÊÒËĞ8ØÂèøû,
-fsquid:S1854)"CRemove this useless assignment to local variable "passwordConfirm".(ÌÛ©êûÿÿÿÿ8í”¾şû,
-Fsquid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÀÃÒşû,
-dsquid:UselessImportCheck"9Remove this unused import 'javax.servlet.ServletContext'.(á¡æŞ8ØÂèøû,
-Usquid:S1481*"2Remove this unused "returnMessage" local variable.(¾è°áıÿÿÿÿ8ØÂèøû,
-Wsquid:S1481)"4Remove this unused "passwordConfirm" local variable.(ÌÛ©êûÿÿÿÿ8í”¾şû,
-[
-squid:S106C"9Replace this use of System.out or System.err by a logger.(È®É±ÿÿÿÿÿ8ıÓßşû,
-Tsquid:S1481,"1Remove this unused "usernameOkay" local variable.(ÍØÈ­üÿÿÿÿ8í”¾şû,
-Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8ØÂèøû,
-csquid:UnusedPrivateMethodU"2Remove this unused private "checkUserName" method.(à„Äôûÿÿÿÿ8ÀÃÒşû,
-Fsquid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÀÃÒşû,
+Fsquid:S1989W"(Add a "try/catch" block for "getWriter".(¾šçŞ8ú¢ß¿ü,
+fsquid:S1854-"CRemove this useless assignment to local variable "passwordConfirm".(ÌÛ©êûÿÿÿÿ8í”¾şû,
+Esquid:S1989&"'Add a "try/catch" block for "parseInt".(ÊÒËĞ8ØÂèøû,
+Wsquid:S1481-"4Remove this unused "passwordConfirm" local variable.(ÌÛ©êûÿÿÿÿ8í”¾şû,
+{squid:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(Ëø÷ëşÿÿÿÿ8ªº…ùû,
+Fsquid:S1148j"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÀÃÒşû,
+Jsquid:S1481#",Remove this unused "session" local variable.(ôÜ½¯8ØÂèøû,
+csquid:UnusedPrivateMethod`"2Remove this unused private "checkUserName" method.(à„Äôûÿÿÿÿ8ÀÃÒşû,
+Usquid:S1481."2Remove this unused "returnMessage" local variable.(¾è°áıÿÿÿÿ8ØÂèøû,
+Tsquid:S14810"1Remove this unused "usernameOkay" local variable.(ÍØÈ­üÿÿÿÿ8í”¾şû,
+dsquid:UselessImportCheck	"9Remove this unused import 'javax.servlet.ServletContext'.(á¡æŞ8ØÂèøû,
+Ysquid:S1854#";Remove this useless assignment to local variable "session".(ôÜ½¯8ØÂèøû,

@@ -1,6 +1,6 @@
 
-Gsquid:S1481%"*Remove this unused "users" local variable.(–ùù28Ö¾Öøû,
-Jsquid:S1481",Remove this unused "session" local variable.(ôÜ½¯8¦§¹ÿû,
-Msquid:S00108\")Either remove or fill this block of code.(ñ“Š±üÿÿÿÿ8¬©©ÿû,
-Ysquid:S1854";Remove this useless assignment to local variable "session".(ôÜ½¯8¦§¹ÿû,
-Jsquid:S1989'"'Add a "try/catch" block for "parseInt".(çÑçÜùÿÿÿÿ8”¦ÿû,
+Ysquid:S1854#";Remove this useless assignment to local variable "session".(ôÜ½¯8¦§¹ÿû,
+Fsquid:S1989f"(Add a "try/catch" block for "getWriter".(¾šçŞ8¦à¿ü,
+Gsquid:S1481)"*Remove this unused "users" local variable.(–ùù28Ö¾Öøû,
+Jsquid:S1989+"'Add a "try/catch" block for "parseInt".(çÑçÜùÿÿÿÿ8”¦ÿû,
+Jsquid:S1481#",Remove this unused "session" local variable.(ôÜ½¯8¦§¹ÿû,
