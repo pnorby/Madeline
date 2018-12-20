@@ -59,7 +59,8 @@ public class AddTripController extends HttpServlet {
 
             aTrip = new Trip(theLocation, tripName, startDay, endDay, theUser);
             tripDao.insert(aTrip);
-
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController");
+            dispatcher.forward(req, resp);
 
         }
             catch(Exception e){
@@ -74,8 +75,7 @@ public class AddTripController extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/homeController");
-        dispatcher.forward(req, resp);
+
 
 
     }

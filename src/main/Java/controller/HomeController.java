@@ -96,4 +96,57 @@ public class HomeController extends HttpServlet {
         }
         return theUser;
     }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        //Get Trip Names and Ids to display on home page
+
+        String theUserName;
+
+        User theUser = null;
+        Set<Trip> userTrips = null;
+        Set<Trip> userTripsAttending = null;
+        Set<Trip> allUserTrips = new HashSet<>();
+        Boolean hasTrips = false;
+
+
+
+        try{
+            theUserName = (String)session.getAttribute("user");
+            theUser =  getUserByUsername(theUserName);
+
+            userTrips = theUser.getTripsCreated();
+            userTripsAttending = theUser.getTripsAttending();
+
+            for (Trip t : userTrips){
+                allUserTrips.add(t);
+            }
+            //Thread.currentThread().sleep(3000);
+            for (Trip t : userTripsAttending){
+                allUserTrips.add(t);
+            }
+
+            if (allUserTrips.size() == 0){
+                req.setAttribute("hasTrips", hasTrips);
+            } else{
+                hasTrips = true;
+                req.setAttribute("hasTrips", hasTrips);
+                session.setAttribute("allUserTrips", allUserTrips);
+                req.setAttribute("userTrips", allUserTrips);
+            }
+
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        //Redirect to home jsp page
+        req.setAttribute("displayUser", session.getAttribute("loggedIn"));
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/home.jsp");
+        dispatcher.forward(req, resp);
+
+
+    }
 }
