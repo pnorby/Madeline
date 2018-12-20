@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * A simple servlet to welcome the user.
+ * A simple servlet to direct a user to plan a trip
  * @author pnorby
  */
 

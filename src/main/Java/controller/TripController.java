@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * A simple servlet to welcome the user.
+ * A simple servlet to display trip info
  * @author pnorby
  */
 

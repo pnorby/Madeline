@@ -21,7 +21,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 /**
- * A simple servlet to welcome the user.
+ * A simple servlet to log trip messages
  * @author pnorby
  */
 

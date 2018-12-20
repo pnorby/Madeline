@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * A simple servlet to welcome the user.
+ * A simple servlet to add the trip
  * @author pnorby
  */
 

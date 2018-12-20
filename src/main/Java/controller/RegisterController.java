@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.util.*;
 
 /**
- * A simple servlet to welcome the user.
+ * A simple servlet to register a user
  * @author pnorby
  */
 
